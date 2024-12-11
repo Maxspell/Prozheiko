@@ -1,3 +1,5 @@
+<?php $about = get_field( 'about' ) ?>
+<?php if ( !$about['disabled'] ) { ?>
 <section class="about">
     <div class="container">
         <div class="about__header section-header">
@@ -8,34 +10,28 @@
         </div>
         <div class="about__inner">
             <div class="about__content">
+            <?php if ( !empty($about['tabs']) ) { ?>
                 <div class="tabs">
-                    <!-- Таб навигация -->
                     <div class="tabs__nav">
-                        <button class="tabs__button tabs__button--active" data-tab="history">Історія заснування</button>
-                        <button class="tabs__button" data-tab="philosophy">Наша філософія</button>
-                        <button class="tabs__button" data-tab="experience">Професіоналізм та досвід</button>
-                        <button class="tabs__button" data-tab="innovation">Інновації та передові методики</button>
-                        <button class="tabs__button" data-tab="dedication">Відданість пацієнтам</button>
+                    <?php foreach ( $about['tabs'] as $index => $item ) { ?>
+                        <button 
+                            class="tabs__button <?php echo $index === 0 ? 'tabs__button--active' : ''; ?>" 
+                            data-tab="aboutTab-<?php echo $index + 1; ?>">
+                            <?= $item['title'] ?>
+                        </button>
+                    <?php } ?>
                     </div>
-                    <!-- Контент табов -->
                     <div class="tabs__content">
-                        <div class="tabs__panel tabs__panel--active" id="history">
-                            <p>Історія PROZHEIKO dental studio почалась ще у 2013 році...</p>
+                    <?php foreach ( $about['tabs'] as $index => $item ) { ?>
+                        <div 
+                            class="tabs__panel <?php echo $index === 0 ? 'tabs__panel--active' : ''; ?>" 
+                            id="aboutTab-<?php echo $index + 1; ?>">
+                            <?= $item['content'] ?>
                         </div>
-                        <div class="tabs__panel" id="philosophy">
-                            <p>Наша філософія — це орієнтація на якість та комфорт пацієнтів...</p>
-                        </div>
-                        <div class="tabs__panel" id="experience">
-                            <p>Наш професіоналізм підтверджується багаторічним досвідом...</p>
-                        </div>
-                        <div class="tabs__panel" id="innovation">
-                            <p>Інновації та передові методики — це основа нашої роботи...</p>
-                        </div>
-                        <div class="tabs__panel" id="dedication">
-                            <p>Відданість пацієнтам проявляється у кожному візиті...</p>
-                        </div>
+                    <?php } ?>
                     </div>
                 </div>
+            <?php } ?>
             </div>
             <div class="about__contact-card contact-card">
                 <div class="contact-card__logo">
@@ -58,3 +54,4 @@
         </div>
     </div>
 </section>
+<?php } ?>

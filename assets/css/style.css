@@ -713,10 +713,37 @@ p:last-child {
 
 .tabs__button {
   all: unset;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  padding-block: 1.6rem;
+  border-bottom: var(--color-grey) solid 1px;
+  cursor: pointer;
+}
+
+.tabs__button--active,
+.tabs__button:hover {
+  color: var(--color-primary);
+  border-bottom: var(--color-primary) solid 1px;
+  font-weight: 700;
 }
 
 .tabs__content {
   flex: 1;
+  padding-top: 1.6rem;
+}
+
+.tabs__panel {
+  display: none;
+}
+.tabs__panel--active {
+  display: block;
+}
+
+/* Reviews section */
+
+.reviews__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
 }
 
 /* Video section */
@@ -1029,4 +1056,36 @@ p:last-child {
   border-right: #292929 solid 1px;
   padding-right: 1.2rem;
   margin-right: 1.2rem;
+}
+
+.swiper-actions {
+  display: flex;
+  margin-top: 3.2rem;
+}
+.swiper-actions .swiper-pagination {
+  display: flex;
+  gap: 0.8rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.swiper-actions .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  color: var(--color-grey);
+  font-weight: 500;
+  border-radius: 0;
+  background: none;
+  opacity: 1;
+}
+
+.swiper-actions .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0;
+}
+
+.swiper-actions .swiper-pagination-bullet-active {
+  color: var(--color-secondary);
 }

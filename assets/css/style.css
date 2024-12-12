@@ -939,6 +939,103 @@ p:last-child {
   border-radius: 0.8rem;
 }
 
+/* Hero service section */
+
+.hero-service__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: var(--color-light-green);
+  border-radius: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 1.6rem;
+}
+
+.hero-service__item {
+  color: rgba(41, 41, 41, 0.5);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero-service__link {
+  color: var(--color-secondary);
+}
+
+.hero-service__link.active,
+.hero-service__link:hover {
+  color: var(--color-primary);
+}
+
+.hero-service__inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 8rem 0 4rem;
+}
+
+.hero-service__content {
+  max-width: 50rem;
+}
+
+.hero-service__title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 6.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.hero-service__description {
+  font-size: 1.8rem;
+  line-height: 1.33;
+  margin-bottom: 4rem;
+}
+
+.hero-service__actions {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.hero-service__price {
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+}
+
+/* Features section */
+
+.features__inner {
+  padding: 4rem 0 8rem; 
+}
+
+.features__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding-left: 29.5rem;
+}
+
+/* Clinic offers section */
+
+.clinic-offers__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
+}
+
+.clinic-offers__content {
+  display: flex;
+  gap: 2rem;
+  padding-left: 29.5rem;
+}
+
+/* Footer */
+
 .footer {
   margin-top: auto;
 }

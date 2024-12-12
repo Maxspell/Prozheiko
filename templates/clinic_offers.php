@@ -30,7 +30,7 @@
                         <div class="clinic-offers__item-description">Цей варіант має досить просту конструкцію, що складається з кількох замків, що кріпляться на поверхні зубів</div>
                     </li>
                 </ul>
-                <div class="clinic-offers__imafe"></div>
+                <div class="clinic-offers__image"></div>
             </div>
         </div>
     </div>

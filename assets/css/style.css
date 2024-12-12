@@ -346,6 +346,17 @@ p:last-child {
   height: 8.8rem;
 }
 
+.clinic-offers-icon {
+  width: 5.6rem;
+  height: 3.942rem;
+  flex-shrink: 0;
+}
+
+.clinic-offers-img {
+  width: 29.5rem;
+  height: 20.3rem;
+}
+
 .section-header {
   display: flex;
   margin-bottom: 4rem;
@@ -1021,6 +1032,23 @@ p:last-child {
   padding-left: 29.5rem;
 }
 
+.features__item-icon img {
+  width: 5.6rem;
+  height: 5.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.features__item-title {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.features__item-description {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
 /* Clinic offers section */
 
 .clinic-offers__inner {
@@ -1031,7 +1059,72 @@ p:last-child {
 .clinic-offers__content {
   display: flex;
   gap: 2rem;
-  padding-left: 29.5rem;
+  padding-left: 31.5rem;
+}
+
+.clinic-offers__image {
+  width: 29.5rem;
+}
+
+.clinic-offers__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clinic-offers__item {
+  display: flex;
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.clinic-offers__item:last-child {
+  margin: 0;
+}
+
+.clinic-offers__item-icon {
+  position: relative;
+  width: 5.6rem;
+  height: 5.6rem;
+  padding-top: 1.6rem;
+}
+
+.clinic-offers__item-icon span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  transform: translate(-50%, -50%);
+}
+
+.clinic-offers__item-head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: var(--color-grey) solid 1px;
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.clinic-offers__item-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+}
+
+.clinic-offers__item-price {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.clinic-offers__item-price span {
+  font-weight: 700;
+}
+
+.clinic-offers__item-description {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
 }
 
 /* Footer */

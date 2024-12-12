@@ -287,7 +287,7 @@ p:last-child {
 /* Custom */
 
 .container {
-  max-width: 1240px;
+  max-width: 127rem;
   width: 100%;
   margin: 0 auto;
   padding: 0 var(--container-padding);
@@ -320,6 +320,7 @@ p:last-child {
 .arrow-right {
   width: 1.8rem;
   height: 1.8rem;
+  stroke: var(--color-light-gray);
   flex-shrink: 0;
 }
 
@@ -746,6 +747,34 @@ p:last-child {
   padding-block: 8rem;
 }
 
+.reviews__buttons {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.reviews__more {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-left: auto;
+}
+
+.reviews__more-link {
+  color: var(--color-secondary);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.reviews__more .arrow-right {
+  width: 1.4rem;
+  height: 1.4rem;
+  stroke: var(--color-secondary);
+  stroke-width: 0.2rem;
+  flex-shrink: 0;
+}
+
 /* Video section */
 
 .video__inner {
@@ -1060,6 +1089,8 @@ p:last-child {
 
 .swiper-actions {
   display: flex;
+  align-items: center;
+  gap: 2rem;
   margin-top: 3.2rem;
 }
 .swiper-actions .swiper-pagination {
@@ -1069,6 +1100,7 @@ p:last-child {
   top: 0;
   left: 0;
   bottom: 0;
+  width: 29.5rem;
 }
 
 .swiper-actions .swiper-pagination-bullet {
@@ -1088,4 +1120,23 @@ p:last-child {
 
 .swiper-actions .swiper-pagination-bullet-active {
   color: var(--color-secondary);
+}
+
+.swiper-actions .swiper-button-next,
+.swiper-actions .swiper-button-prev {
+	position: relative;
+	top: auto;
+	left: auto;
+  right: auto;
+  width: 0.8rem;
+  height: 1.6rem;
+  color: var(--color-secondary);
+  font-size: 1.6rem;
+	margin-top: auto;
+}
+
+.swiper-actions .swiper-button-next::after,
+.swiper-actions .swiper-button-prev::after {
+  font-size: 1.6rem;
+  font-weight: 700;
 }

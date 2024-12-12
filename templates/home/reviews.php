@@ -27,8 +27,16 @@
                 </div>
                 <div class="swiper-actions">
                     <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <div class="reviews__buttons">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <div class="reviews__more">
+                        <a href="#" class="reviews__more-link">Більше відгуків в нашому Instagram</a>
+                        <svg class="arrow-right" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>

@@ -60,4 +60,21 @@ if (typeof Swiper !== 'undefined') {
       }
     }
   });
+
+  const doctorsSlider = new Swiper('.doctors__slider', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: (index, className) => {
+        const number = (index + 1).toString().padStart(2, '0');
+        return `<span class="${className}">${number}</span>`;
+      },
+    },
+  });
 }

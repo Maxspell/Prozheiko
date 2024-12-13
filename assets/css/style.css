@@ -394,6 +394,19 @@ p:last-child {
   padding: 0.8rem 1.6rem;
 }
 
+.section-more {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.section-more__link {
+  color: var(--color-secondary);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .social-list {
   display: flex;
   align-items: center;
@@ -1185,6 +1198,115 @@ p:last-child {
   line-height: 6.4rem;
   margin-block: 8rem;
   text-align: center;
+/* Price section */
+
+.price__inner { 
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
+}
+
+.price__content {
+  display: flex;
+  gap: 10.5rem;
+  padding-left: 31.5rem;
+}
+
+.price__list-wrapper {
+  flex: 1;
+}
+
+.price__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.price__list-more {
+  margin: 2.4rem 2rem 0;
+}
+
+.price__item {
+  border-bottom: var(--color-grey) solid 1px;
+  padding: 2rem;
+}
+
+.price__item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.price__item-title {
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.price__item-price {
+  flex-shrink: 0;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.price__item-price span {
+  font-weight: 700;
+}
+
+.price__item:first-child {
+  background-color: var(--color-light-green);
+  border-radius: 0.8rem;
+  border-bottom: 0;
+}
+
+.price__item:first-child .price__item-head {
+  margin-bottom: 1.2rem;
+}
+
+.price__item:last-child {
+  border-bottom: 0;
+}
+
+.doctors__slider {
+  width: 29.5rem;
+}
+
+.doctors__slide img {
+  border-radius: 0.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.doctors__slide-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+}
+
+.doctors__slide-subtitle {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+
+.doctors__services {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+}
+
+.doctors__service {
+  display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	font-size: 1.8rem;
+	font-weight: 500;
+	line-height: 2.4rem;
+	padding-block: 0.4rem
 }
 
 /* Footer */
@@ -1389,4 +1511,9 @@ p:last-child {
 .swiper-actions .swiper-button-prev::after {
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+.service-template-default .contact-form__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-top: 8rem;
 }

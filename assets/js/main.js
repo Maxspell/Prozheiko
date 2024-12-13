@@ -41,4 +41,23 @@ if (typeof Swiper !== 'undefined') {
       }
     }
   });
+
+  const stepsSlider = new Swiper('.steps__slider', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      }
+    }
+  });
 }

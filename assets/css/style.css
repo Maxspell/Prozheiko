@@ -1127,6 +1127,56 @@ p:last-child {
   line-height: 2.4rem;
 }
 
+/* Steps section */
+
+.steps__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
+}
+
+.steps__slide {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light-green);
+  border-radius: 0.4rem;
+  padding: 4rem 2rem;
+  height: auto;
+}
+
+.steps__slide-title {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+
+.steps__slide-description {
+  flex: 1;
+  line-height: 2rem;
+  margin-bottom: 1.6rem;
+}
+
+.steps__slide-num {
+  color: var(--color-primary);
+  line-height: 2rem;
+}
+
+.steps__slide:first-child {
+  background-color: var(--color-primary);
+}
+
+.steps__slide:first-child .steps__slide-title {
+  color: var(--color-light-gray);
+}
+
+.steps__slide:first-child .steps__slide-description {
+  color: var(--color-grey);
+}
+
+.steps__slide:first-child .steps__slide-num {
+  color: var(--color-light-green);
+}
+
 /* Footer */
 
 .footer {

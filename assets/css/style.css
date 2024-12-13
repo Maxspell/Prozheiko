@@ -1177,6 +1177,16 @@ p:last-child {
   color: var(--color-light-green);
 }
 
+/* Team page */
+
+.team__title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 6.4rem;
+  margin-block: 8rem;
+  text-align: center;
+}
+
 /* Footer */
 
 .footer {

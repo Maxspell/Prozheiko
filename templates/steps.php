@@ -5,7 +5,7 @@
                 <div class="steps__label section-label">
                     <span class="label-text">Впевненість в усмішці</span>
                 </div>
-                <h2 class="steps__title section-title">Ціни на послуги<br><span>Назва послуги</span></h2>
+                <h2 class="steps__title section-title">Етапи роботи<br><span>Назва послуги</span></h2>
             </div>
             <div class="swiper steps__slider">
                 <div class="swiper-wrapper">

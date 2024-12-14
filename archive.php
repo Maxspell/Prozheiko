@@ -10,42 +10,49 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main class="main">
 
 		<?php if ( have_posts() ) : ?>
+			<section class="blog-section">
+				<h1 class="blog-section__title">Блог</h1>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+				<ul class="blog__category-list">
+					<li class="blog__category-item">
+						<a href="#" class="blog__category-link">Всі</a>
+					</li>
+					<li class="blog__category-item">
+						<a href="#" class="blog__category-link">Діагностика</a>
+					</li>
+					<li class="blog__category-item">
+						<a href="#" class="blog__category-link">Лікування</a>
+					</li>
+					<li class="blog__category-item">
+						<a href="#" class="blog__category-link">Візуалізація</a>
+					</li>
+				</ul>
+				<div class="blog__articles">
+					<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+						<article class="blog__article">
+							<a href="#" class="blog__article-link">
+								<img src="/wp-content/themes/prozheiko/assets/img/related-1.jpg" alt="Стаття" class="blog__article-image">
+								<div class="blog__article-head">
+									<h3 class="blog__article-title">Первинна консультація та діагностика</h3>
+									<p class="blog__article-category">Діагностика</p>    
+								</div>
+							</a>
+						</article>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+					<?php endwhile; ?>
+				</div>
 
-			endwhile;
+				<?php the_posts_navigation(); ?>
 
-			the_posts_navigation();
+			</section>
 
-		else :
+		<?php endif; ?>
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+	</main>
 
 <?php
-get_sidebar();
 get_footer();

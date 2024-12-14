@@ -1481,6 +1481,179 @@ p:last-child {
   padding-bottom: 8rem;
 }
 
+.certificates__slide {
+  background-color: var(--color-light-green);
+  border-radius: 0.4rem;
+  padding-block: 9.5rem;
+}
+
+/* Related section */
+
+.related__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
+}
+
+.related__articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.related__article-link {
+  display: block;
+  position: relative;
+}
+
+.related__article-head {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 1.6rem;
+  right: 1.6rem;
+  background-color: var(--color-light-gray);
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+}
+
+.related__article-title {
+  color: var(--color-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.related__article-category {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+}
+
+.related__article-avatar {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 5.6rem;
+  height: 5.6rem;
+  overflow: hidden;
+}
+
+.related__article-avatar img {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 0.4rem;
+}
+
+/* Blog section */
+
+.blog-section__inner {
+  padding-block: 8rem;
+}
+
+.blog-section__title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4rem;
+}
+
+.blog__category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4rem;
+}
+
+.blog__category-item {
+  border: var(--color-primary) solid 1px;
+  border-radius: 0.4rem;
+  transition: background-color 0.3s ease;
+}
+
+.blog__category-link {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.blog__category-item.active,
+.blog__category-item:hover {
+  background-color: var(--color-primary);
+}
+
+.blog__category-item.active .blog__category-link,
+.blog__category-item:hover .blog__category-link {
+  color: var(--color-light-gray);
+}
+
+.blog__category-amount {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.blog__articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.blog__article-link {
+  display: block;
+  position: relative;
+}
+
+.blog__article-image {
+  border-radius: 0.4rem;
+}
+
+.blog__article-head {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 1.6rem;
+  right: 1.6rem;
+  background-color: var(--color-light-gray);
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+}
+
+.blog__article-title {
+  color: var(--color-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.blog__article-category {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+}
+
+.blog__article-avatar {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 5.6rem;
+  height: 5.6rem;
+  overflow: hidden;
+}
+
+.blog__article-avatar img {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 0.4rem;
+}
+
 .footer {
   margin-top: auto;
 }

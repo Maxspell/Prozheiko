@@ -1,21 +1,21 @@
-<section class="team-owners">
+<section class="team-section team-section--owners">
     <h2 class="team-section__title">Наші власники</h2>
-    <ul class="team-owners__list">
-        <li class="team-owners__item">
-            <a href="#" class="team-owners__link">
-                <img src="" alt="">
-                <div class="team-owners__head">
-                    <h3 class="team-owners__title">Прожейко Сергій</h3>
-                    <p class="team-owners__subtitle">Головний лікар, Лікар-ортопед</p>
+    <ul class="team-section__list">
+        <li class="team-section__item">
+            <a href="#" class="team-section__link">
+                <img src="/wp-content/themes/prozheiko/assets/img/team-img.jpg" alt="" class="team-section__image">
+                <div class="team-section__head">
+                    <h3 class="team-section__name">Прожейко Сергій</h3>
+                    <p class="team-section__role">Головний лікар, Лікар-ортопед</p>
                 </div>
             </a>
         </li>
-        <li class="team-owners__item">
-            <a href="#" class="team-owners__link">
-                <img src="" alt="">
-                <div class="team-owners__head">
-                    <h3 class="team-owners__title">Прожейко Ірина</h3>
-                    <p class="team-owners__subtitle">ОПЕРАЦІЙНИЙ ДИРЕКТОР</p>
+        <li class="team-section__item">
+            <a href="#" class="team-section__link">
+                <img src="/wp-content/themes/prozheiko/assets/img/team-img.jpg" alt="" class="team-section__image">
+                <div class="team-section__head">
+                    <h3 class="team-section__name">Прожейко Ірина</h3>
+                    <p class="team-section__role">Операційний директор</p>
                 </div>
             </a>
         </li>

@@ -324,6 +324,14 @@ p:last-child {
   flex-shrink: 0;
 }
 
+.arrow-left {
+  width: 1.2rem;
+  height: 1.2rem;
+  /* stroke: var(--color-light-gray); */
+  flex-shrink: 0;
+  transform: rotate(180deg);
+}
+
 .check-icon {
   width: 1rem;
   height: 0.8rem;
@@ -1190,16 +1198,6 @@ p:last-child {
   color: var(--color-light-green);
 }
 
-/* Team page */
-
-.team__title {
-  font-size: 6rem;
-  font-weight: 700;
-  line-height: 6.4rem;
-  margin-block: 8rem;
-  text-align: center;
-}
-
 /* Price section */
 
 .price__inner { 
@@ -1311,7 +1309,177 @@ p:last-child {
 	padding-block: 0.4rem
 }
 
-/* Footer */
+/* Team section */
+
+.team-section {
+  margin-bottom: 8rem;
+}
+
+.team__title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 6.4rem;
+  margin-block: 8rem;
+  text-align: center;
+}
+
+.team-section__title {
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 4.8rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.team-section__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team-section__item {
+  flex: 0 1 calc(33.333% - 2rem);
+}
+
+.team-section__image {
+  border-radius: 0.4rem;
+}
+
+.team-section__link {
+  position: relative;
+  display: block;
+}
+
+.team-section__head {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 1.6rem;
+  right: 1.6rem;
+  background-color: var(--color-light-gray);
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+}
+
+.team-section__name {
+  color: var(--color-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.team-section__role {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+}
+
+/* Profile section */
+
+.profile__inner {
+  display: grid;
+  grid-template-columns: minmax(20rem, 40rem) auto;
+  gap: 12.5rem;
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+}
+
+.profile__return-link {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+}
+
+.profile__head {
+  border-bottom: var(--color-grey) solid 1px;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.profile__title {
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 7.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.profile__subtitle {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+}
+
+.profile__services {
+  margin-bottom: 2.4rem;
+}
+
+.profile__button {
+  margin-bottom: 4rem;
+}
+
+.profile__description {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin-bottom: 8rem;
+}
+
+.profile__experience-title,
+.certificates__title {
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 4.8rem;
+  margin-bottom: 3.2rem;
+}
+
+.profile__experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile__experience-item {
+  display: grid;
+  grid-template-columns: 8.5rem auto;
+  gap: 1.6rem;
+  border-bottom: var(--color-grey) solid 1px;
+  padding-block: 1.6rem;
+}
+
+.profile__experience-item:last-child {
+  border-bottom: none;
+}
+
+.profile__experience-item-years {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+}
+
+.profile__experience-item-text {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+/* Certificates section */
+
+.certificates__inner {
+  margin-left: 52.5rem;
+  padding-bottom: 8rem;
+}
 
 .footer {
   margin-top: auto;

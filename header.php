@@ -60,16 +60,16 @@
 								<a href="#" class="header__nav-link">ПРО НАС</a>
 							</li>
 							<li class="header__nav-item">
-								<a href="#" class="header__nav-link">Наша команда</a>
+								<a href="/team/" class="header__nav-link">Наша команда</a>
 							</li>
 							<li class="header__nav-item">
 								<a href="#" class="header__nav-link">Послуги та ціни</a>
 							</li>
 							<li class="header__nav-item">
-								<a href="#" class="header__nav-link">Блог</a>
+								<a href="/blog/" class="header__nav-link">Блог</a>
 							</li>
 							<li class="header__nav-item">
-								<a href="#" class="header__nav-link">КОНТАКТИ</a>
+								<a href="/contacts/" class="header__nav-link">КОНТАКТИ</a>
 							</li>
 						</ul>
 					</nav>

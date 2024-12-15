@@ -354,6 +354,12 @@ p:last-child {
   height: 8.8rem;
 }
 
+.angle-up-icon {
+  width: 1.8rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
 .clinic-offers-icon {
   width: 5.6rem;
   height: 3.942rem;
@@ -811,7 +817,7 @@ p:last-child {
 
 .video__inner {
   border-top: var(--color-grey) solid 1px;
-  padding: 8rem 0 4rem;
+  padding-block: 8rem;
 }
 
 .video__image {
@@ -840,7 +846,8 @@ p:last-child {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  padding: 4rem 0 8rem;
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
 }
 
 .contact-form__formbox {
@@ -1712,6 +1719,160 @@ p:last-child {
   font-weight: 500;
   line-height: 4.8rem;
   margin-bottom: 1.6rem;
+}
+
+/* Contacts section */
+
+.contacts__inner {
+  padding-block: 8rem;
+}
+
+.contacts__title {
+  margin-bottom: 4rem;
+}
+
+.contacts__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.contacts__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  border-radius: 0.8rem;
+  padding: 1.6rem 2.4rem;
+}
+
+.contacts__item:first-child {
+  background-color: var(--color-light-green);
+}
+
+.contacts__item:last-child {
+  border-top: var(--color-grey) solid 1px;
+}
+
+.contacts__item-address {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+}
+
+.contacs__item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contacts__item-link {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.contacts__map iframe {
+  border-radius: 0.8rem;
+}
+
+/* 404 section */
+
+.error-404__inner {
+  padding-block: 8rem;
+}
+
+.error-404__title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.error-404__image {
+  margin: 0 auto;
+}
+
+/* Service section */
+
+.service-section__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
+}
+
+.service-section__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.service-section__title {
+  font-weight: 500;
+  line-height: 2.1rem;
+  margin-bottom: 2.4rem;
+  text-transform: uppercase;
+}
+
+.service-section__details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-section__detail {
+  line-height: 1;
+  margin-bottom: 1.8rem;
+}
+
+.service-section__detail:last-child {
+  margin-bottom: 0;
+}
+
+.service-section__link {
+  color: var(--color-secondary);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* FAQ section */
+
+.faq__inner {
+  border-top: var(--color-grey) solid 1px;
+  padding-block: 8rem;
+}
+
+.faq__items {
+  padding-inline: 31.5rem;
+}
+
+.faq__item {
+  border-bottom: var(--color-grey) solid 1px;
+  padding-block: 2rem;
+}
+
+.faq__item:last-child {
+  border-bottom: none;
+}
+
+.faq__item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+
+.faq__item-title {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.faq__item-content {
+  line-height: 2rem;
+}
+
+.faq__more {
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .footer {

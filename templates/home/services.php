@@ -14,9 +14,15 @@
                     <li class="services__item">
                         <div class="services__item-meta">
                             <div class="services__item-icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bleaching-icon.svg" alt="">
+                                <?php $general_term = get_field( 'general', $term->term_id ); ?>
+                                <?php if ( !empty( $general_term['icon'] ) ) : ?>
+                                    <img src="<?= esc_url( $general_term['icon'] ); ?>" alt="">
+                                <?php else : ?>
+                                    <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/img/bleaching-icon.svg" alt="">
+                                <?php endif; ?>
                             </div>
-                            <div class="services__item-num">0<?= $index + 1 ?></div>
+                            <?php $number = sprintf('%02d', $index + 1); ?>
+                            <div class="services__item-num"><?= $number ?></div>
                         </div>
                         <h3 class="services__item-title"><?= esc_html( $term->name ) ?></h3>
 
@@ -38,10 +44,15 @@
                             <ul class="services__item-list">
                                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
                                     <li class="services__item-detail">
-                                        <span class="services__item-detail-name"><?php the_title(); ?></span>
-                                        <span class="services__item-detail-price">
-                                            <?= get_field( 'price' ) ? 'від ' . esc_html( get_field( 'price' ) ) . ' грн' : ''; ?>
-                                        </span>
+                                        <a class="services__item-detail-link" href="<?php the_permalink(); ?>">
+                                            <span class="services__item-detail-title"><?php the_title(); ?></span>
+                                            <?php $general = get_field( 'general' ); ?>
+                                            <?php if ( !empty( $general['price'] ) ) { ?>
+                                                <span class="services__item-detail-price">
+                                                    <?= $general['price'] ?>
+                                                </span>
+                                            <?php } ?>
+                                        </a>
                                     </li>
                                 <?php endwhile; ?>
                             </ul>

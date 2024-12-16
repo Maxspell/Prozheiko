@@ -599,6 +599,7 @@ p:last-child {
 .services__item-title {
   font-size: 2rem;
   font-weight: 700;
+  line-height: 2.4rem;
   margin-bottom: 1.6rem;
   text-transform: uppercase;
 }
@@ -609,27 +610,29 @@ p:last-child {
   padding: 0;
 }
 
-.services__item-detail {
+.services__item-detail-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2.4rem;
+  color: var(--color-secondary);
   border-bottom: var(--color-grey) solid 1px;
-  margin-bottom: 0.6rem;
-  padding-bottom: 0.6rem;
+  padding-block: 0.6rem;
 }
 
-.services__item-detail:hover {
+.services__item-detail-link:hover {
   color: var(--color-primary);
   border-bottom: var(--color-primary) solid 1px;
 }
 
-.services__item-detail-name {
+.services__item-detail-title {
   font-weight: 500;
+  line-height: 2rem;
 }
 
 .services__item-detail-price {
   font-size: 1.4rem;
+  line-height: 2rem;
 }
 
 .leaders {

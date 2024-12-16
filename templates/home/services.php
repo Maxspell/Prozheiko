@@ -14,8 +14,9 @@
                     <li class="services__item">
                         <div class="services__item-meta">
                             <div class="services__item-icon">
-                                <?php $general_term = get_field( 'general', $term->term_id ); ?>
-                                <?php if ( !empty( $general_term['icon'] ) ) : ?>
+                                <?php 
+                                $general_term = get_field( 'general', 'service_category_' . $term->term_id ); 
+                                if ( !empty( $general_term['icon'] ) ) : ?>
                                     <img src="<?= esc_url( $general_term['icon'] ); ?>" alt="">
                                 <?php else : ?>
                                     <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/img/bleaching-icon.svg" alt="">

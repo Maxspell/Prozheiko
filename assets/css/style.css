@@ -631,6 +631,7 @@ p:last-child {
 }
 
 .services__item-detail-price {
+  min-width: 8.5rem;
   font-size: 1.4rem;
   line-height: 2rem;
 }

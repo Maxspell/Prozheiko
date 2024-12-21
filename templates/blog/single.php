@@ -1,63 +1,65 @@
-<?php $article = get_field( 'article' ) ?>
+<?php while ( have_posts() ) : the_post();
+$general = get_field( 'general' );
+$author = $general['author'];
+
+$author_name = '';
+$author_link = '#';
+if ( $author ) {
+    $author_name = get_the_title( $author );
+    $author_link = get_permalink( $author );
+}
+?>
 <section class="article-section">
     <div class="container">
         <div class="article-section__inner">
             <article class="article">
-                <a href="#" class="profile__return-link">
+                <a href="/blog/" class="profile__return-link">
                     <svg class="arrow-left" aria-hidden="true">
                         <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                     </svg>
                     <span>Повернутись до блогу</span>
                 </a>
-                <h1 class="article__title">Лікування зубів уві сні. Що за метод і як виглядає</h1>
+                <h1 class="article__title"><?php the_title(); ?></h1>
                 <div class="article__meta">
                     <ul class="article__meta-list">
                         <li class="article__meta-item">
-                            <span>Автор:</span> <a href="#">Прожейко Ірина</a>
+                            <span>Автор:</span>
+                            <?php if ( $author_name ) : ?>
+                                <a href="<?php echo esc_url( $author_link ); ?>">
+                                    <?php echo esc_html( $author_name ); ?>
+                                </a>
+                            <?php endif; ?>
                         </li>
                         <li class="article__meta-item">
-                            <span>Дата публікації:</span> <span>01.01.2022</span>
+                            <span>Дата публікації:</span> <span><?php the_time('d.m.Y'); ?></span>
                         </li>
                         <li class="article__meta-item">
-                            <span>Категорія:</span> <a href="#">Хірургія</a>
+                            <span>Категорія:</span>
+                            <?php 
+                                $category = get_the_category();
+                                if (!empty($category)) {
+                                    echo '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . 
+                                        esc_html($category[0]->name) . '</a>';
+                                }
+                            ?>
                         </li>
                     </ul>
-                    <div class="article__meta-description">Коли йдеться про проведення стоматологічних процедур уві сні, багато хто думає, що мається на увазі лікування зубів під загальним наркозом. Але насправді більшість стоматологічних клінік наразі використовує седацію. Це альтернатива, яка дозволяє розслабити пацієнта та перевести його в контрольований сон.
-                    Лікування зубів уві сні – це дуже зручна процедура, яка дозволяє стоматологам надати якісніші послуги.</div>
+                    <?php if ( !empty($general['description'])) : ?>
+                        <div class="article__meta-description">
+                            <?php echo $general['description']; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <div class="article__image">
-                    <img src="/wp-content/themes/prozheiko/assets/img/blog-img.jpg" alt="">
-                </div>
+                <?php if ( !empty($general['image'])) : ?>
+                    <div class="article__image">
+                        <img src="<?php echo esc_url($general['image']); ?>" alt="">
+                    </div>
+                <?php endif; ?>
                 <div class="article__inner">
                     <ul class="article__toc">
-                        <li class="article__toc-item">
-                            <a href="#">Введення</a>
-                        </li>
-                        <li class="article__toc-item">
-                            <a href="#">Процедура</a>
-                        </li>
-                        <li class="article__toc-item">
-                            <a href="#">Результат</a>
-                        </li>
-                        <li class="article__toc-item">
-                            <a href="#">Виключення</a>
-                        </li>
                     </ul>
                     <div class="article__content">
-                        <h2>Переваги лікування</h2>
-                        <p>Лікування під седацією значно полегшує процедуру не тільки якщо індивідуальна ситуація в пацієнта складна. Також така послуга буде дуже доречною, якщо людина має велику фобію перед стоматологами. Контрольований сон дозволить заспокоїти пацієнта та знерухомити його. Що, звісно, значно полегшить задачу стоматологу.</p>
-                        <p>Якщо говорити про лікування зубів “під наркозом”, тобто уві сні, то можна виділити такі основні переваги послуги:</p>
-                        <p>Стоматологу легше сконцентруватися на роботі, тому медичні послуги, що надаються пацієнту, будуть якіснішими.</p>
-                        <p>Пацієнту не доводиться бути повноцінним учасником подій і споглядати за всіма маніпуляціями фахівця. Це дозволяє уникнути зайвого стресу.</p>
-                        <p>Можливість проведення складніших операцій. Водночас пацієнт не буде відчувати під час цього дискомфорт.</p>
-                        <p>Нешкідливість для організму людини. Седація відрізняється м’якшою дією на організм людини ніж наркоз.</p>
-                        <p>Варто зазначити, що лікування зубів “під наркозом”, навіть якщо це звичайна седація, передбачає певну підготовку. Щоб визначити найкращий препарат, а також його оптимальне дозування, спеціалісти призначають пацієнту:</p>
-                        <ul>
-                        <li>аналіз крові (загальний або біохімічний);</li>
-                        <li>аналіз крові на згортання;</li>
-                        <li>електрокардіограму;</li>
-                        <li>додаткову консультацію терапевта або педіатра (для дитини).</li>
-                        </ul>                      
+                        <?php echo $general['content']; ?>                     
                     </div>
                     <div class="article__sidebar">
                         <div class="contact-card">
@@ -81,3 +83,4 @@
         </div>
     </div>
 </section>
+<?php endwhile; ?>

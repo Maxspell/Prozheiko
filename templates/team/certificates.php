@@ -1,21 +1,18 @@
+<?php
+if ( isset( $args['certificates'] ) && !empty( $args['certificates'] ) ) :
+    $certificates = $args['certificates'];
+?>
 <section class="certificates">
     <div class="container">
         <div class="certificates__inner">
-            <h2 class="certificates__title">Сертифікати</h2>
+            <h2 class="certificates__title"><?php echo $certificates['title'] ?></h2>
             <div class="swiper certificates__slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide certificates__slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/certificates-1.jpg" alt="Сертифікат">
-                    </div>
-                    <div class="swiper-slide certificates__slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/certificates-1.jpg" alt="Сертифікат">
-                    </div>
-                    <div class="swiper-slide certificates__slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/certificates-1.jpg" alt="Сертифікат">
-                    </div>
-                    <div class="swiper-slide certificates__slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/certificates-1.jpg" alt="Сертифікат">
-                    </div>
+                    <?php foreach ( $certificates['list'] as $certificate ) : ?>
+                        <div class="swiper-slide certificates__slide">
+                            <img src="<?php echo esc_url( $certificate ); ?>" alt="">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="swiper-actions">
                     <div class="swiper-pagination"></div>
@@ -28,3 +25,4 @@
         </div>
     </div>
 </section>
+<?php endif; ?>

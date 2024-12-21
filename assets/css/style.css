@@ -1754,6 +1754,28 @@ p:last-child {
   margin: 0;
 }
 
+.article__toc-item {
+  border-bottom: var(--color-grey) solid 1px;
+  transition: border-color 0.3s ease;
+}
+
+.article__toc-item:hover {
+  border-bottom: var(--color-primary) solid 1px;
+}
+
+.article__toc-item:hover .article__toc-link {
+  color: var(--color-primary);
+}
+
+.article__toc-link {
+	color: var(--color-secondary);
+	font-size: 2rem;
+	line-height: 2.4rem;
+	padding-block: 1.6rem;
+	display: block;
+  transition: color 0.3s ease;
+}
+
 .article__content {
   font-size: 1.8rem;
   line-height: 2.4rem;

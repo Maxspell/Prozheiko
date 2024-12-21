@@ -121,3 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
       subNav.addEventListener('mouseleave', hideSubNav);
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Находим блок с классом .article__content
+  const articleContent = document.querySelector(".article__content");
+  // Находим блок с классом .article__toc
+  const articleTOC = document.querySelector(".article__toc");
+
+  if (articleContent && articleTOC) {
+      // Находим все заголовки h2 внутри .article__content
+      const headings = articleContent.querySelectorAll("h2");
+
+      // Счетчик для уникальных ID
+      let counter = 1;
+
+      // Создаем список элементов для каждого заголовка
+      headings.forEach(heading => {
+          const li = document.createElement("li");
+          li.className = "article__toc-item";
+
+          const anchor = document.createElement("a");
+          anchor.className = "article__toc-link";
+          anchor.textContent = heading.textContent;
+
+          // Генерируем уникальный ID
+          const id = `heading-${counter++}`;
+          heading.id = id;
+          anchor.href = `#${id}`;
+
+          li.appendChild(anchor);
+          articleTOC.appendChild(li);
+      });
+  }
+});

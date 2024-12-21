@@ -1,3 +1,7 @@
+<?php
+if ( isset($args['related_posts']) && $args['related_posts']->have_posts() ) :
+    $related_posts = $args['related_posts'];
+?>
 <section class="related">
     <div class="container">
         <div class="related__inner">
@@ -5,46 +9,36 @@
                 <div class="related__label section-label">
                     <span class="label-text">Статті</span>
                 </div>
-                <h2 class="related__title section-title">Статті, експертизи та висновки<br><span>Прожейко Сергій</span></h2>
+                <h2 class="related__title section-title">Статті, експертизи та висновки<br><span>PROZHEIKO dental</span></h2>
             </div>
             <div class="related__articles">
-                <article class="related__article">
-                    <a href="#" class="related__article-link">
-                        <img src="/wp-content/themes/prozheiko/assets/img/related-1.jpg" alt="Стаття" class="related__article-image">
-                        <div class="related__article-head">
-                            <h3 class="related__article-title">Первинна консультація та діагностика</h3>
-                            <p class="related__article-category">Діагностика</p>    
-                        </div>
-                        <div class="related__article-avatar">
-                            <img src="/wp-content/themes/prozheiko/assets/img/avatar.jpg" alt="">
-                        </div>
-                    </a>
-                </article>
-                <article class="related__article">
-                    <a href="#" class="related__article-link">
-                        <img src="/wp-content/themes/prozheiko/assets/img/related-1.jpg" alt="Стаття" class="related__article-image">
-                        <div class="related__article-head">
-                            <h3 class="related__article-title">Первинна консультація та діагностика</h3>
-                            <p class="related__article-category">Діагностика</p>    
-                        </div>
-                        <div class="related__article-avatar">
-                            <img src="/wp-content/themes/prozheiko/assets/img/avatar.jpg" alt="">
-                        </div>
-                    </a>
-                </article>
-                <article class="related__article">
-                    <a href="#" class="related__article-link">
-                        <img src="/wp-content/themes/prozheiko/assets/img/related-1.jpg" alt="Стаття" class="related__article-image">
-                        <div class="related__article-head">
-                            <h3 class="related__article-title">Первинна консультація та діагностика</h3>
-                            <p class="related__article-category">Діагностика</p>    
-                        </div>
-                        <div class="related__article-avatar">
-                            <img src="/wp-content/themes/prozheiko/assets/img/avatar.jpg" alt="">
-                        </div>
-                    </a>
-                </article>
+                <?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
+                    <article class="related__article">
+                        <a href="<?php the_permalink(); ?>" class="related__article-link">
+                            <?php
+                            $post_general = get_field('general', get_the_ID());
+                            ?>
+                            <?php if ( !empty($post_general['image_in_list']) ) : ?>
+                                <img src="<?php echo esc_url($post_general['image_in_list']); ?>" alt="<?php the_title(); ?>" class="related__article-image">
+                            <?php endif; ?>
+                            <div class="related__article-head">
+                                <h3 class="related__article-title"><?php the_title(); ?></h3>
+                                <p class="related__article-category">
+                                    <?php 
+                                    $category = get_the_category();
+                                    echo !empty($category) ? esc_html($category[0]->name) : '';
+                                    ?>
+                                </p>    
+                            </div>
+                            <div class="related__article-avatar">
+                                <img src="/wp-content/themes/prozheiko/assets/img/avatar.jpg" alt="">
+                            </div>
+                        </a>
+                    </article>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>

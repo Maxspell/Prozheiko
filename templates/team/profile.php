@@ -1,6 +1,7 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); 
 $general = get_field('general');
 $experience = get_field('experience');
+$certificates = get_field('certificates');
 ?>
     <section class="profile">
         <div class="container">
@@ -71,4 +72,7 @@ $experience = get_field('experience');
             </div>
         </div>
     </section>
+    <?php if ( !empty($certificates)) : ?>
+        <?php get_template_part('templates/team/certificates', null, ['certificates' => $certificates]); ?>
+    <?php endif; ?>
 <?php endwhile; endif; ?>

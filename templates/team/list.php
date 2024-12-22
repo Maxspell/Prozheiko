@@ -3,12 +3,19 @@
 $team_categories = get_terms([
     'taxonomy' => 'team_category',
     'hide_empty' => true,
+    'meta_key' => 'order',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC',
 ]);
 
 if (!empty($team_categories) && !is_wp_error($team_categories)) :
     foreach ($team_categories as $category) :
         $team_posts = new WP_Query([
             'post_type' => 'team',
+            'posts_per_page' => -1,
+            'orderby' => 'meta_value_num',
+            'meta_key' => 'general_order',
+            'order' => 'ASC',
             'tax_query' => [
                 [
                     'taxonomy' => 'team_category',

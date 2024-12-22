@@ -52,7 +52,7 @@
 			<div class="container">
 				<div class="header__inner header__inner--bottom">
 					<div class="header__logo">
-						<a href="#"><img src="/wp-content/themes/prozheiko/assets/img/logo.png" alt=""></a>
+						<a href="/"><img src="/wp-content/themes/prozheiko/assets/img/logo.png" alt=""></a>
 					</div>
 					<nav class="header__nav">
 						<ul class="header__nav-list">

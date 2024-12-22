@@ -72,7 +72,7 @@ $certificates = get_field('certificates');
             </div>
         </div>
     </section>
-    <?php if ( !empty($certificates)) : ?>
+    <?php if ( !empty($certificates['list'])) : ?>
         <?php get_template_part('templates/team/certificates', null, ['certificates' => $certificates]); ?>
     <?php endif; ?>
 <?php endwhile; endif; ?>

@@ -2,6 +2,7 @@
 
     <main class="main">
 
+        <?php get_template_part( 'templates/common/breadcrumbs' ); ?>
         <?php get_template_part( 'templates/hero_service' ); ?>
         <?php get_template_part( 'templates/features' ); ?>
         <?php get_template_part( 'templates/clinic_offers' ); ?>

@@ -3,6 +3,7 @@
     <main class="main">
         <div class="container">
 
+            <?php get_template_part( 'templates/common/breadcrumbs' ); ?>
             <?php get_template_part( 'templates/team/list' ); ?>
 
         </div>

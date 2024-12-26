@@ -18,6 +18,7 @@ $related_posts = new WP_Query([
 
     <main class="main">
 
+        <?php get_template_part( 'templates/common/breadcrumbs' ); ?>
         <?php get_template_part( 'templates/team/profile' ); ?>
         <?php get_template_part( 'templates/team/related', null, ['related_posts' => $related_posts] ); ?>
 

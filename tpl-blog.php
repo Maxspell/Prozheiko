@@ -8,6 +8,7 @@ Template Name: Blog
 
     <main class="main">
 
+        <?php get_template_part( 'templates/common/breadcrumbs' ); ?>
         <?php get_template_part( 'templates/blog/list' ); ?>
 
     </main>

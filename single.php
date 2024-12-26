@@ -22,6 +22,7 @@ if ( $author ) {
 
     <main class="main">
 
+        <?php get_template_part( 'templates/common/breadcrumbs' ); ?>
         <?php get_template_part( 'templates/blog/single' ); ?>
         <?php get_template_part( 'templates/faq' ); ?>
         <?php get_template_part( 'templates/team/related', null, ['related_posts' => $related_posts] ); ?>

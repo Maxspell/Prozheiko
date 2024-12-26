@@ -12,6 +12,7 @@ get_header();
 
 	<main class="main">
 
+		<?php get_template_part( 'templates/common/breadcrumbs' ); ?>
 		<?php get_template_part( 'templates/404/content' ); ?>
 		<?php get_template_part( 'templates/404/services' ); ?>
 

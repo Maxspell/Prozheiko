@@ -22,26 +22,18 @@ $certificates = get_field('certificates');
                         <h1 class="profile__title"><?php the_title(); ?></h1>
                         <p class="profile__subtitle"><?php echo esc_html($general['role']); ?></p>
                     </div>
-                    <ul class="doctors__services profile__services">
-                        <li class="doctors__service">
-                            <svg class="check-icon" aria-hidden="true">
-                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                            </svg>
-                            Вініри
-                        </li>
-                        <li class="doctors__service">
-                            <svg class="check-icon" aria-hidden="true">
-                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                            </svg>
-                            Реставрація зубів
-                        </li>
-                        <li class="doctors__service">
-                            <svg class="check-icon" aria-hidden="true">
-                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                            </svg>
-                            Протезування
-                        </li>
-                    </ul>
+                    <?php if ( !empty( $general['services'] ) ) : ?>
+                        <ul class="doctors__services profile__services">
+                        <?php foreach ( $general['services'] as $service ) : ?>
+                            <li class="doctors__service">
+                                <svg class="check-icon" aria-hidden="true">
+                                    <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
+                                </svg>
+                                <?= $service['service'] ?>
+                            </li>
+                        <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                     <button type="button" class="profile__button button">
                         <span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
                         <svg class="arrow-right" aria-hidden="true">

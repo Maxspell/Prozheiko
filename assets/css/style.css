@@ -300,10 +300,11 @@ p:last-child {
 }
 
 .button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.6rem;
+  /*gap: 1.6rem;*/
   border: none;
   background-color: var(--color-primary);
   border-radius: 0.4rem;
@@ -315,6 +316,15 @@ p:last-child {
   text-transform: uppercase;
   cursor: pointer;
   padding: 2rem 2.4rem;
+  overflow: hidden;
+}
+
+.button-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  overflow: hidden;
 }
 
 .arrow-right {
@@ -322,6 +332,7 @@ p:last-child {
   height: 1.8rem;
   stroke: var(--color-light-gray);
   flex-shrink: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .arrow-left {
@@ -330,6 +341,32 @@ p:last-child {
   /* stroke: var(--color-light-gray); */
   flex-shrink: 0;
   transform: rotate(180deg);
+}
+
+.button-text {
+  transition: transform 0.3s ease-in-out;
+}
+
+.button .arrow-right--left {
+  position: absolute;
+  left: -1.8rem;
+  top: 50%;
+  opacity: 0;
+  transform:translateY(-50%);
+}
+
+.button:hover .arrow-right {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.button:hover .arrow-right--left {
+  opacity: 1;
+  transform: translate(1.8rem, -50%);
+}
+
+.button:hover .button-text {
+  transform: translateX(3.4rem);
 }
 
 .check-icon {

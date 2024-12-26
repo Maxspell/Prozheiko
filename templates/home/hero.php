@@ -11,10 +11,15 @@
         <?php } ?>
             <div class="hero__button">
                 <button type="button" class="button">
-                    <span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
-                    <svg class="arrow-right" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                    </svg>
+                    <div class="button-content">
+                        <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                        <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
+                        <svg class="arrow-right" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                    </div>
                 </button>
             </div>
         </div>

@@ -255,6 +255,11 @@ body {
   line-height: 1.5;
 }
 
+body.lock,
+body._lock {
+	overflow: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -304,14 +309,14 @@ p:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*gap: 1.6rem;*/
+  gap: 1.6rem;
   border: none;
   background-color: var(--color-primary);
   border-radius: 0.4rem;
   color: #FEFEFE;
   font-size: 1.6rem;
   font-weight: 500;
-  line-height: 2.4rem;
+  line-height: 1;
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
@@ -319,17 +324,9 @@ p:last-child {
   overflow: hidden;
 }
 
-.button-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  overflow: hidden;
-}
-
 .arrow-right {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
   stroke: var(--color-light-gray);
   flex-shrink: 0;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -343,16 +340,15 @@ p:last-child {
   transform: rotate(180deg);
 }
 
-.button-text {
-  transition: transform 0.3s ease-in-out;
+.arrow-right--left {
+  margin-right: -3.2rem;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.button .arrow-right--left {
-  position: absolute;
-  left: -1.8rem;
-  top: 50%;
-  opacity: 0;
-  transform:translateY(-50%);
+.button-text {
+  transition: transform 0.3s ease-in-out;
 }
 
 .button:hover .arrow-right {
@@ -362,11 +358,11 @@ p:last-child {
 
 .button:hover .arrow-right--left {
   opacity: 1;
-  transform: translate(1.8rem, -50%);
+  transform: translateX(0);
 }
 
 .button:hover .button-text {
-  transform: translateX(3.4rem);
+  transform: translateX(3.2rem);
 }
 
 .check-icon {
@@ -400,6 +396,12 @@ p:last-child {
 .clinic-offers-icon {
   width: 5.6rem;
   height: 3.942rem;
+  flex-shrink: 0;
+}
+
+.close-icon {
+  width: 1.6rem;
+  height: 1.6rem;
   flex-shrink: 0;
 }
 
@@ -507,7 +509,6 @@ p:last-child {
 
 .header__inner--bottom {
   position: relative;
-  padding-block: 2.3rem;
 }
 
 .header__nav {
@@ -522,6 +523,7 @@ p:last-child {
 }
 .header__nav-item {
   position: relative;
+  padding-block: 3.05rem;
 }
 
 .header__nav-item:hover .header__nav-link {
@@ -534,6 +536,7 @@ p:last-child {
 }
 
 .header__nav-link {
+  position: relative;
   color: #292929;
   font-size: 1.4rem;
   line-height: 1.5rem;
@@ -557,17 +560,24 @@ p:last-child {
 .header__nav-subnav {
   display: none;
   position: absolute;
-  left: 0;
-  width: 100%; 
-  background-color: #fff;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  top: 6.5rem;
+  left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
+	max-width: 124rem;
+  background-color: var(--color-grey);
+  border-radius: 0.4rem;
+  padding: 2.4rem;
   z-index: 10;
 }
 
-.header__nav-subnav.active {
-  display: block;
+.header__nav-item--services:hover .header__nav-subnav {
+	display: block;
 }
+
+/* .header__nav-subnav.active {
+  display: block;
+} */
 
 .header__phones {
   display: flex;
@@ -1005,7 +1015,6 @@ p:last-child {
   border-radius: 0.4rem;
   background-color: #ffffff;
   cursor: pointer;
-  transition: border 0.3s ease-in-out;
 }
 
 .contact-form__option:has(input[type="radio"]:checked),
@@ -2153,6 +2162,67 @@ p:last-child {
   margin-right: 1.2rem;
 }
 
+/* Popups */
+.popup {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.45);
+	top: 0;
+	left: 0;
+	z-index: 10;
+	opacity: 0;
+	visibility: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: all .8s ease 0s;
+}
+.popup.open {
+	opacity: 1;
+	visibility: visible;
+}
+.popup.open .popup__content {
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+.popup__body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	padding: 30px 15px;
+	transition: all .8s ease 0s;
+}
+.popup__content {
+	position: relative;
+	width: 100%;
+	max-width: 50.5rem; 
+	background-color: #fff;
+	padding: 4rem;
+	opacity: 0;
+	transition: all .8s ease 0s;
+	transform: translate(0px, -100%);
+}
+.popup__close {
+  all: unset;
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	cursor: pointer;
+	width: 2.4rem;
+	height: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup__close:hover {
+	border: none;
+}
+.popup__title {
+	margin-bottom: 4rem;
+}
+
+/* Swiper */
 .swiper-actions {
   display: flex;
   align-items: center;

@@ -10,16 +10,14 @@
             <p class="hero__subtitle"><?= $hero['subtitle'] ?></p>
         <?php } ?>
             <div class="hero__button">
-                <button type="button" class="button">
-                    <div class="button-content">
-                        <svg class="arrow-right arrow-right--left" aria-hidden="true">
-                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                        </svg>
-                        <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
-                        <svg class="arrow-right" aria-hidden="true">
-                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                        </svg>
-                    </div>
+                <button type="button" class="button popup-link" data-popup="popupForm">
+                    <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                    </svg>
+                    <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
+                    <svg class="arrow-right" aria-hidden="true">
+                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                    </svg>
                 </button>
             </div>
         </div>

@@ -65,8 +65,11 @@
 					</ul>
 				</div>
 				<div class="footer__action">
-					<button type="button" class="button">
-						<span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
+					<button type="button" class="button popup-link" data-popup="popupForm">
+						<svg class="arrow-right arrow-right--left" aria-hidden="true">
+							<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+						</svg>
+						<span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
 						<svg class="arrow-right" aria-hidden="true">
         					<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
     					</svg>
@@ -90,6 +93,20 @@
 		</div>
 	</footer>
 
+</div>
+
+<div id="popupForm" class="popup">
+	<div class="popup__body">
+		<div class="popup__content">
+			<button class="popup__close close-popup" type="button">
+				<svg class="close-icon" aria-hidden="true">
+                    <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close"></use>
+                </svg>
+			</button>
+			<div class="popup__title section-title">Заплануйте свій<br/><span>візит до стоматолога</span></div>
+			<?php echo do_shortcode( '[contact-form-7 id="e5d38cd" title="Feedback Form"]' ); ?>
+		</div>
+	</div>
 </div>
 
 <?php wp_footer(); ?>

@@ -39,17 +39,17 @@ add_action( 'wp_head', 'prozheiko_pingback_header' );
 /**
  * Adds SVG to the list of files allowed for uploading.
  */
-function lazerrez_svg_upload_allow( $mimes ) {
+function prozheiko_svg_upload_allow( $mimes ) {
 	$mimes['svg']  = 'image/svg+xml';
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'lazerrez_svg_upload_allow' );
+add_filter( 'upload_mimes', 'prozheiko_svg_upload_allow' );
 
 
 /**
  * Fix MIME type for SVG files.
  */
-function lazerrez_fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ) {
+function prozheiko_fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ) {
 	if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) ) {
 		$dosvg = in_array( $real_mime, [ 'image/svg', 'image/svg+xml' ] );
 	}
@@ -70,4 +70,25 @@ function lazerrez_fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime
 
 	return $data;
 }
-add_filter( 'wp_check_filetype_and_ext', 'lazerrez_fix_svg_mime_type', 10, 5 );
+add_filter( 'wp_check_filetype_and_ext', 'prozheiko_fix_svg_mime_type', 10, 5 );
+
+/* Disable auto tag <p> and line breaks in contact form 7 */
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+/* Change submit button in contact form 7 */
+add_filter('wpcf7_form_elements', function($content) {
+    $new_button = '<button type="submit" class="button">
+                        <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                        <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
+                        <svg class="arrow-right" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                </button>';
+    
+    $pattern = '/<input[^>]*type=["\']submit[\'"](.*?)>/';
+    $content = preg_replace($pattern, $new_button, $content);
+    
+    return $content;
+});

@@ -5,7 +5,7 @@
                 <div class="faq__label section-label">
                     <span class="label-text">Досвід та принципи</span>
                 </div>
-                <h2 class="faq__title section-title">Авторська стоматологія<br><span>PROZHEIKO dental</span></h2>
+                <h2 class="faq__title section-title">Питання та<br><span>відповіді</span></h2>
                 <div class="faq__more section-more">
                     <a href="#" class="section-more__link">Поставити запитання</a>
                     <svg class="arrow-right" aria-hidden="true">

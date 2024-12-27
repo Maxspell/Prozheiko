@@ -242,3 +242,31 @@ function bodyUnLock() {
       unlock = true;
   }, timeout);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq__item");
+
+  faqItems.forEach(item => {
+      const head = item.querySelector(".faq__item-head");
+      const content = item.querySelector(".faq__item-content");
+      const icon = item.querySelector(".angle-up-icon");
+
+      content.style.maxHeight = "0";
+
+      head.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
+
+          faqItems.forEach(i => {
+              i.classList.remove("active");
+              i.querySelector(".faq__item-content").style.maxHeight = "0";
+              i.querySelector(".angle-up-icon").style.transform = "rotate(0deg)";
+          });
+
+          if (!isActive) {
+              item.classList.add("active");
+              content.style.maxHeight = content.scrollHeight + "px";
+              icon.style.transform = "rotate(180deg)";
+          }
+      });
+  });
+});

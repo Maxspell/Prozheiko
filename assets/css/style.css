@@ -387,10 +387,35 @@ p:last-child {
   height: 8.8rem;
 }
 
+.angle-up-icon-wrapper {
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+  overflow: hidden;
+}
+
 .angle-up-icon {
   width: 1.8rem;
   height: 1rem;
   flex-shrink: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.angle-up-icon.clone {
+  top: 100%;
+  transform: translateY(0) translateX(-50%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.angle-up-icon-wrapper:hover .angle-up-icon {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.angle-up-icon-wrapper:hover .angle-up-icon.clone {
+  transform: translateY(-100%);
+  opacity: 1;
 }
 
 .clinic-offers-icon {
@@ -2007,6 +2032,8 @@ p:last-child {
 
 .faq__item-content {
   line-height: 2rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .faq__more {

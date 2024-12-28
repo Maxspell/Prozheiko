@@ -23,6 +23,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div class="wrapper">
+	<?php $general = get_field( 'general', 'options' ); ?>
 	<header class="header lock-padding">
 		<div class="header__top">
 			<div class="container">
@@ -31,20 +32,22 @@
 						<svg width="24" height="24">
 							<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#map-marker"></use>
 						</svg>
-                        <span class="header__address-text">Бульвар Миколи Міхновського 6-Б</span>
+                        <span class="header__address-text"><?= $general['address'] ?></span>
                     </div>
 					<div class="header__schedule">
 						<svg width="25" height="24">
 							<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#clock"></use>
 						</svg>
-                        <span class="header__schedule-time">ПН-СБ: 10:00-19:00</span>
-                        <span class="header__schedule-time">Неділя: Вихідний</span>
+                        <span class="header__schedule-time"><?= $general['schedule_1'] ?></span>
+                        <span class="header__schedule-time"><?= $general['schedule_2'] ?></span>
                     </div>
-					<ul class="social-list">
-						<li><a href="#"><img class="social-list__icon" src="/wp-content/themes/prozheiko/assets/img/facebook-icon.svg" alt=""></a></li>
-						<li><a href="#"><img class="social-list__icon" src="/wp-content/themes/prozheiko/assets/img/instagram-icon.svg" alt=""></a></li>
-						<li><a href="#"><img class="social-list__icon" src="/wp-content/themes/prozheiko/assets/img/youtube-icon.svg" alt=""></a></li>
-					</ul>
+					<?php if ( $general['social_list'] ) : ?>
+						<ul class="social-list">
+							<?php foreach ( $general['social_list'] as $item ) : ?>
+								<li><a href="<?= $item['link'] ?>"><img class="social-list__icon" src="<?= $item['icon'] ?>" alt=""></a></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -52,7 +55,7 @@
 			<div class="container">
 				<div class="header__inner header__inner--bottom">
 					<div class="header__logo">
-						<a href="/"><img src="/wp-content/themes/prozheiko/assets/img/logo.png" alt=""></a>
+						<a href="/"><img src="<?= $general['logo'] ?>" alt="Prozheiko Dental Studio"></a>
 					</div>
 					<nav class="header__nav">
 						<ul class="header__nav-list">
@@ -114,8 +117,8 @@
 						</ul>
 					</nav>
 					<ul class="header__phones">
-						<li><a href="">+38 (068) 38-38-532</a></li>
-						<li><a href="">+38 (044) 38-38-532</a></li>
+						<li><a href="<?= $general['phone_1']['url'] ?>"><?= $general['phone_1']['title'] ?></a></li>
+						<li><a href="<?= $general['phone_2']['url'] ?>"><?= $general['phone_2']['title'] ?></a></li>
 					</ul>
 				</div>
 			</div>

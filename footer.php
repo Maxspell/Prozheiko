@@ -9,6 +9,7 @@
  * @package prozheiko
  */
 
+$general = get_field( 'general', 'options' );
 ?>
 
 	<footer class="footer">
@@ -17,7 +18,7 @@
 				<address class="footer__contacts">
 					<div class="footer__logo">
 						<a href="/">
-							<img src="/wp-content/themes/prozheiko/assets/img/logo.png" alt="Логотип Prozheiko" width="216" height="39">
+							<img src="<?= $general['logo'] ?>" alt="Логотип Prozheiko" width="216" height="39">
 						</a>
 					</div>
 					<p class="footer__logo-slogan">Місце здорових посмішок</p>
@@ -27,33 +28,33 @@
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#phone"></use>
 								</svg>
-								<a href="tel:+380683835323" class="footer__phone-link">+38 (068) 38-38-532</a>
+								<a href="<?= $general['phone_1']['url'] ?>" class="footer__phone-link"><?= $general['phone_1']['title'] ?></a>
 							</li>
 							<li class="footer__phone">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#phone"></use>
 								</svg>
-								<a href="tel:+380733838532" class="footer__phone-link">+38 (073) 38-38-532</a>
+								<a href="<?= $general['phone_2']['url'] ?>" class="footer__phone-link"><?= $general['phone_2']['title'] ?></a>
 							</li>
 							<li class="footer__email">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#email"></use>
 								</svg>
-								<a href="mailto:clients@prozheiko.kiev.ua" class="footer__email-link">clients@prozheiko.kiev.ua</a>
+								<a href="<?= $general['email']['url'] ?>" class="footer__email-link"><?= $general['email']['title'] ?></a>
 							</li>
 							<li class="footer__address">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#location"></use>
 								</svg>
-								<p class="footer__address-text">бульвар Миколи Міхновського 6-Б</p>
+								<p class="footer__address-text"><?= $general['address'] ?></p>
 							</li>
 						</ul>
 					</nav>
 				</address>
 				<div class="footer__schedule">
 					<h3 class="footer__column-title footer__schedule-title">Графік роботи</h3>
-					<p class="footer__schedule-text">ПН-СБ: <span>10:00-19:00</span></p>
-					<p class="footer__schedule-text">Неділя: <span>Вихідний</span></p>
+					<p class="footer__schedule-text"><?= $general['schedule_1'] ?></p>
+					<p class="footer__schedule-text"><?= $general['schedule_2'] ?></p>
 				</div>
 				<div class="footer__menu">
 					<h3 class="footer__column-title footer__menu-title">Про головне</h3>
@@ -74,20 +75,22 @@
         					<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
     					</svg>
 					</button>
-					<ul class="social-list social-list--footer">
-						<li><a href="#"><img class="social-list__icon" src="/wp-content/themes/prozheiko/assets/img/facebook-color-icon.svg" alt=""></a></li>
-						<li><a href="#"><img class="social-list__icon" src="/wp-content/themes/prozheiko/assets/img/instagram-color-icon.svg" alt=""></a></li>
-						<li><a href="#"><img class="social-list__icon" src="/wp-content/themes/prozheiko/assets/img/youtube-color-icon.svg" alt=""></a></li>
-					</ul>
+					<?php if ( $general['social_list'] ) : ?>
+						<ul class="social-list social-list--footer">
+							<?php foreach ( $general['social_list'] as $item ) : ?>
+								<li><a href="<?= $item['link'] ?>"><img class="social-list__icon" src="<?= $item['icon_color'] ?>" alt=""></a></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="footer__bottom">
 				<div class="footer__copyright">
-					<p class="footer__copyright-text">Усі права захищено © Стоматологічна клініка PROZHEIKO DENTAL STUDIO</p>
+					<p class="footer__copyright-text"><?= $general['copyright'] ?></p>
 				</div>
 				<div class="footer__policies">
-					<a href="#" class="footer__policy-link">Політика конфіденційності</a>
-					<a href="#" class="footer__policy-link">Договір оферти</a>
+					<a href="<?= $general['policy_1']['url'] ?>" class="footer__policy-link"><?= $general['policy_1']['title'] ?></a>
+					<a href="<?= $general['policy_2']['url'] ?>" class="footer__policy-link"><?= $general['policy_2']['title'] ?></a>
 				</div>
 			</div>
 		</div>

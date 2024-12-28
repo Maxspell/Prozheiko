@@ -270,3 +270,75 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const playButton = document.getElementById('play-button');
+  const videoContainer = document.getElementById('video-container');
+  const videoCodeContainer = document.getElementById('video-code');
+
+  playButton.addEventListener('click', function () {
+      let videoCode = videoCodeContainer.innerHTML;
+
+      videoCode = videoCode.replace(/src="([^"]+)"/, function (match, url) {
+          const separator = url.includes('?') ? '&' : '?';
+          return `src="${url}${separator}autoplay=1"`;
+      });
+
+      videoContainer.innerHTML = videoCode;
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slideWrappers = document.querySelectorAll(".reviews__comparison");
+
+  slideWrappers.forEach(wrapper => {
+    const images = wrapper.querySelectorAll(".reviews__comparison-img");
+    const leftIcon = wrapper.querySelector(".angle-left-icon");
+    const rightIcon = wrapper.querySelector(".angle-right-icon");
+    const label = wrapper.querySelector(".reviews__comparison-label");
+
+    let activeIndex = 0;
+
+    const updateIcons = () => {
+      leftIcon.classList.toggle("disabled", activeIndex === 0);
+      rightIcon.classList.toggle("disabled", activeIndex === images.length - 1);
+
+      if (activeIndex === 0) {
+        label.textContent = "До";
+      } else if (activeIndex === images.length - 1) {
+        label.textContent = "После";
+      } else {
+        label.textContent = activeIndex % 2 === 0 ? "До" : "После";
+      }
+    };
+
+    const switchImage = (direction) => {
+      const currentImage = images[activeIndex];
+      currentImage.classList.remove("reviews__comparison-img--active");
+
+      if (direction === -1) {
+        currentImage.classList.add("reviews__comparison-img--prev");
+      } else {
+        currentImage.classList.add("reviews__comparison-img--next");
+      }
+
+      activeIndex += direction;
+
+      const nextImage = images[activeIndex];
+      nextImage.classList.remove(
+        "reviews__comparison-img--prev",
+        "reviews__comparison-img--next"
+      );
+
+      nextImage.classList.add("reviews__comparison-img--active");
+
+      updateIcons();
+    };
+
+    leftIcon.addEventListener("click", () => switchImage(-1));
+    rightIcon.addEventListener("click", () => switchImage(1));
+
+    updateIcons();
+  });
+});
+

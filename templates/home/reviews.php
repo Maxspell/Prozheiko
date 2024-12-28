@@ -12,8 +12,18 @@
                     <div class="swiper-slide">
                         <img src="/wp-content/themes/prozheiko/assets/img/reviews1.jpg" alt="">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/reviews2.jpg" alt="">
+                    <div class="swiper-slide reviews__comparison">
+                        <img class="reviews__comparison-img reviews__comparison-img--active" src="/wp-content/themes/prozheiko/assets/img/reviews2.jpg" alt="">
+                        <img class="reviews__comparison-img reviews__comparison-img--prev" src="/wp-content/themes/prozheiko/assets/img/reviews3.jpg" alt="">
+                        <div class="reviews__slide-action">
+                            <svg class="angle-left-icon" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-left"></use>
+                            </svg>
+                            <span class="reviews__comparison-label">До</span>
+                            <svg class="angle-right-icon" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-right"></use>
+                            </svg>
+                        </div>
                     </div>
                     <div class="swiper-slide">
                         <img src="/wp-content/themes/prozheiko/assets/img/reviews3.jpg" alt="">

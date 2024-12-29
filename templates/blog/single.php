@@ -13,7 +13,7 @@ if ( $author ) {
     <div class="container">
         <div class="article-section__inner">
             <article class="article">
-                <a href="/blog/" class="profile__return-link">
+                <a href="/blog/" class="article__return-link">
                     <svg class="arrow-left" aria-hidden="true">
                         <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                     </svg>
@@ -70,8 +70,11 @@ if ( $author ) {
                             </div>
                             <div class="contact-card__title">Гігієна та відбілювання</div>
                             <p class="contact-card__subtitle">від 500 грн </p>
-                            <button type="button" class="contact-form__button button">
-                                <span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
+                            <button type="button" class="contact-form__button button popup-link" data-popup="popupForm">
+                                <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                                    <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                                </svg>
+                                <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
                                 <svg class="arrow-right" aria-hidden="true">
                                     <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                                 </svg>

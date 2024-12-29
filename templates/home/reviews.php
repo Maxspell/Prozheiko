@@ -11,10 +11,22 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="/wp-content/themes/prozheiko/assets/img/reviews1.jpg" alt="">
+                        <div class="reviews__slide-meta">
+                            <div class="reviews__slide-badge">Відео відгук</div>
+                            <div class="reviews__slide-badge">Послуга</div>
+                            <svg class="instagram-icon" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
+                            </svg>
+                        </div>
+                        <button class="video__play" aria-label="Play video">
+                            <svg class="play-icon" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#play"></use>
+                            </svg>
+                        </button>
                     </div>
                     <div class="swiper-slide reviews__comparison">
-                        <img class="reviews__comparison-img reviews__comparison-img--active" src="/wp-content/themes/prozheiko/assets/img/reviews2.jpg" alt="">
-                        <img class="reviews__comparison-img reviews__comparison-img--prev" src="/wp-content/themes/prozheiko/assets/img/reviews3.jpg" alt="">
+                        <img class="reviews__comparison-img reviews__comparison-img--active" src="/wp-content/themes/prozheiko/assets/img/reviews2-2.jpg" alt="">
+                        <img class="reviews__comparison-img reviews__comparison-img--prev" src="/wp-content/themes/prozheiko/assets/img/reviews2.jpg" alt="">
                         <div class="reviews__slide-action">
                             <svg class="angle-left-icon" aria-hidden="true">
                                 <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-left"></use>
@@ -27,9 +39,23 @@
                     </div>
                     <div class="swiper-slide">
                         <img src="/wp-content/themes/prozheiko/assets/img/reviews3.jpg" alt="">
+                        <div class="reviews__slide-meta">
+                            <div class="reviews__slide-badge">Відгук</div>
+                            <div class="reviews__slide-badge">Послуга</div>
+                            <svg class="instagram-icon" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
+                            </svg>
+                        </div>
                     </div>
                     <div class="swiper-slide">
                         <img src="/wp-content/themes/prozheiko/assets/img/reviews4.jpg" alt="">
+                        <div class="reviews__slide-meta">
+                            <div class="reviews__slide-badge">Відгук</div>
+                            <div class="reviews__slide-badge">Послуга</div>
+                            <svg class="instagram-icon" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
+                            </svg>
+                        </div>
                     </div>
                     <div class="swiper-slide">
                         <img src="/wp-content/themes/prozheiko/assets/img/reviews5.jpg" alt="">

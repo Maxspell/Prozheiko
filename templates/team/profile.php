@@ -6,6 +6,12 @@ $certificates = get_field('certificates');
     <section class="profile">
         <div class="container">
             <div class="profile__inner">
+                <a href="/team/" class="profile__return-link--mobile">
+                    <svg class="arrow-left" aria-hidden="true">
+                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                    </svg>
+                    <span>Всі лікарі</span>
+                </a>
                 <div class="profile__image">
                     <?php if ( !empty($general['image'])) : ?>
                         <img src="<?= esc_url($general['image']); ?>" alt="">
@@ -34,8 +40,11 @@ $certificates = get_field('certificates');
                         <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
-                    <button type="button" class="profile__button button">
-                        <span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
+                    <button type="button" class="profile__button button popup-link" data-popup="popupForm">
+                        <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                        <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
                         <svg class="arrow-right" aria-hidden="true">
                             <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                         </svg>

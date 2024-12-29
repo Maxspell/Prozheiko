@@ -12,7 +12,7 @@ $hero = get_field( 'hero' );
             if ($categories && !is_wp_error($categories)) :
                 foreach ($categories as $category) :
                     echo '<ul class="hero-service__list">';
-                    echo '<li class="hero-service__item">' . esc_html($category->name) . ':</li>';
+                    echo '<li class="hero-service__item hero-service__category">' . esc_html($category->name) . ':</li>';
 
                     $query_args = [
                         'post_type' => 'service',
@@ -51,8 +51,11 @@ $hero = get_field( 'hero' );
                     <div class="hero-service__title"><?= $title ?></div>
                     <div class="hero-service__description"><?= $hero['description'] ?></div>
                     <div class="hero-service__actions">
-                        <button type="button" class="button">
-                            <span>Детальний прайс</span>
+                        <button type="button" class="button popup-link" data-popup="popupForm">
+                            <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                            <span class="button-text">Детальний прайс</span>
                             <svg class="arrow-right" aria-hidden="true">
                                 <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                             </svg>

@@ -67,46 +67,49 @@
 							</li>
 							<li class="header__nav-item header__nav-item--services">
 								<a href="#" class="header__nav-link">Послуги та ціни</a>
-								<div class="header__nav-subnav">
-									<div class="service-section__list">
-										<div class="service-section__item">
-											<h3 class="service-section__title">Гігієна та відбілювання</h3>
-											<ul class="service-section__details">
-												<li class="service-section__detail"><a href="#" class="service-section__link">Гігієна</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Відбілювання</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Профілактика</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Лікування ясен</a></li>
-											</ul>
-										</div>
-										<div class="service-section__item">
-											<h3 class="service-section__title">Гігієна та відбілювання</h3>
-											<ul class="service-section__details">
-												<li class="service-section__detail"><a href="#" class="service-section__link">Гігієна</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Відбілювання</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Профілактика</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Лікування ясен</a></li>
-											</ul>
-										</div>
-										<div class="service-section__item">
-											<h3 class="service-section__title">Гігієна та відбілювання</h3>
-											<ul class="service-section__details">
-												<li class="service-section__detail"><a href="#" class="service-section__link">Гігієна</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Відбілювання</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Профілактика</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Лікування ясен</a></li>
-											</ul>
-										</div>
-										<div class="service-section__item">
-											<h3 class="service-section__title">Гігієна та відбілювання</h3>
-											<ul class="service-section__details">
-												<li class="service-section__detail"><a href="#" class="service-section__link">Гігієна</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Відбілювання</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Профілактика</a></li>
-												<li class="service-section__detail"><a href="#" class="service-section__link">Лікування ясен</a></li>
-											</ul>
+								<?php
+								$service_categories = get_terms([
+									'taxonomy' => 'service_category',
+									'hide_empty' => true,
+								]);
+
+								if (!empty($service_categories) && !is_wp_error($service_categories)) : ?>
+									<div class="header__nav-subnav">
+										<div class="service-section__list">
+											<?php foreach ($service_categories as $category) : 
+												$service_posts = new WP_Query([
+													'post_type' => 'service',
+													'posts_per_page' => -1,
+													'tax_query' => [
+														[
+															'taxonomy' => 'service_category',
+															'field' => 'term_id',
+															'terms' => $category->term_id,
+														],
+													],
+												]);
+												?>
+												<div class="service-section__item">
+													<h3 class="service-section__title"><?php echo esc_html($category->name); ?></h3>
+													<ul class="service-section__details">
+														<?php if ($service_posts->have_posts()) : ?>
+															<?php while ($service_posts->have_posts()) : 
+																$service_posts->the_post(); 
+																?>
+																<li class="service-section__detail">
+																	<a href="<?php the_permalink(); ?>" class="service-section__link"><?php the_title(); ?></a>
+																</li>
+															<?php endwhile; ?>
+														<?php endif; ?>
+													</ul>
+												</div>
+											<?php  
+												wp_reset_postdata();
+										 		endforeach; 
+												?>
 										</div>
 									</div>
-								</div>
+								<?php endif; ?>
 							</li>
 							<li class="header__nav-item">
 								<a href="/blog/" class="header__nav-link">Блог</a>

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 if (typeof Swiper !== 'undefined') {
   const reviewsSlider = new Swiper('.reviews__slider', {
-    slidesPerView: 1,
+    slidesPerView: 1.4,
     spaceBetween: 20,
     navigation: {
       prevEl: '.swiper-button-prev',
@@ -43,7 +43,7 @@ if (typeof Swiper !== 'undefined') {
   });
 
   const stepsSlider = new Swiper('.steps__slider', {
-    slidesPerView: 1,
+    slidesPerView: 1.2,
     spaceBetween: 20,
     navigation: {
       prevEl: '.swiper-button-prev',
@@ -79,7 +79,7 @@ if (typeof Swiper !== 'undefined') {
   });
 
   const certificateSlider = new Swiper('.certificates__slider', {
-    slidesPerView: 3,
+    slidesPerView: 1.2,
     spaceBetween: 20,
     navigation: {
       prevEl: '.swiper-button-prev',
@@ -93,6 +93,16 @@ if (typeof Swiper !== 'undefined') {
         return `<span class="${className}">${number}</span>`;
       },
     },
+    breakpoints: {
+      768: {
+        slidesPerView: 2.5,
+        spaceBetween: 20,
+      },
+      1440: {
+        slidesPerView: 3.5,
+        spaceBetween: 20,
+      }
+    }
   });
 }
 
@@ -341,4 +351,53 @@ document.addEventListener("DOMContentLoaded", () => {
     updateIcons();
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const moreLink = document.querySelector('.seo__more-link');
+  const seoText = document.querySelector('.seo__text');
+  const arrowIcon = document.querySelector('.seo .arrow-right');
+
+  function isMobile() {
+      return window.innerWidth <= 768;
+  }
+
+  function truncateText() {
+      if (!isMobile()) return;
+      const paragraphs = seoText.querySelectorAll('p');
+      paragraphs.forEach((paragraph, index) => {
+          if (index > 2) {
+              paragraph.style.display = 'none';
+          }
+      });
+      arrowIcon.classList.remove('collapse');
+  }
+
+  function expandText() {
+      if (!isMobile()) return;
+      const paragraphs = seoText.querySelectorAll('p');
+      paragraphs.forEach(paragraph => {
+          paragraph.style.display = 'block';
+      });
+      arrowIcon.classList.add('collapse');
+  }
+
+  truncateText();
+
+  moreLink.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      if (!isMobile()) return;
+
+      if (moreLink.textContent.trim() === 'Розгорнути весь список') {
+          expandText();
+          moreLink.textContent = 'Згорнути весь список';
+      } else {
+          truncateText();
+          moreLink.textContent = 'Розгорнути весь список';
+      }
+  });
+
+  window.addEventListener('resize', truncateText);
+});
+
 

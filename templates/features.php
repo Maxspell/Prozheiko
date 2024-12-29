@@ -17,7 +17,7 @@
                             <img src="<?php echo esc_url( $feature['icon'] ); ?>" alt="">
                         </div>
                         <h3 class="features__item-title"><?= $feature['title'] ?></h3>
-                        <p class="features__item-description"><?= $feature['description'] ?></p>
+                        <div class="features__item-description"><?= $feature['description'] ?></div>
                     </li>
                 <?php endforeach; ?>
             </ul>

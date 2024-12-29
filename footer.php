@@ -89,8 +89,12 @@ $general = get_field( 'general', 'options' );
 					<p class="footer__copyright-text"><?= $general['copyright'] ?></p>
 				</div>
 				<div class="footer__policies">
-					<a href="<?= $general['policy_1']['url'] ?>" class="footer__policy-link"><?= $general['policy_1']['title'] ?></a>
-					<a href="<?= $general['policy_2']['url'] ?>" class="footer__policy-link"><?= $general['policy_2']['title'] ?></a>
+					<?php if ( !empty($general['policy_1']) ) : ?>
+						<a href="<?= $general['policy_1']['url'] ?>" class="footer__policy-link"><?= $general['policy_1']['title'] ?></a>
+					<?php endif; ?>
+					<?php if ( !empty($general['policy_2']) ) : ?>
+						<a href="<?= $general['policy_2']['url'] ?>" class="footer__policy-link"><?= $general['policy_2']['title'] ?></a>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

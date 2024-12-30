@@ -24,25 +24,25 @@ $general = get_field( 'general', 'options' );
 					<p class="footer__logo-slogan">Місце здорових посмішок</p>
 					<nav class="footer__contact-info">
 						<ul class="footer__contact-list">
-							<li class="footer__phone">
+							<li class="footer__phone footer__contact-item">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#phone"></use>
 								</svg>
 								<a href="<?= $general['phone_1']['url'] ?>" class="footer__phone-link"><?= $general['phone_1']['title'] ?></a>
 							</li>
-							<li class="footer__phone">
+							<li class="footer__phone footer__contact-item">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#phone"></use>
 								</svg>
 								<a href="<?= $general['phone_2']['url'] ?>" class="footer__phone-link"><?= $general['phone_2']['title'] ?></a>
 							</li>
-							<li class="footer__email">
+							<li class="footer__email footer__contact-item">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#email"></use>
 								</svg>
 								<a href="<?= $general['email']['url'] ?>" class="footer__email-link"><?= $general['email']['title'] ?></a>
 							</li>
-							<li class="footer__address">
+							<li class="footer__address footer__contact-item">
 								<svg class="footer__contact-icon" aria-hidden="true">
 									<use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#location"></use>
 								</svg>
@@ -58,12 +58,15 @@ $general = get_field( 'general', 'options' );
 				</div>
 				<div class="footer__menu">
 					<h3 class="footer__column-title footer__menu-title">Про головне</h3>
-					<ul class="footer__menu-list">
-						<li class="footer__menu-item"><a href="#" class="footer__menu-link">Наша команда</a></li>
-						<li class="footer__menu-item"><a href="#" class="footer__menu-link">Послуги та ціни</a></li>
-						<li class="footer__menu-item"><a href="#" class="footer__menu-link">Блог</a></li>
-						<li class="footer__menu-item"><a href="#" class="footer__menu-link">Контакти</a></li>
-					</ul>
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'footer-menu',
+								'container'       => false,
+								'menu_class'      => 'footer__menu-list',
+							)
+						);
+					?>
 				</div>
 				<div class="footer__action">
 					<button type="button" class="button popup-link" data-popup="popupForm">
@@ -117,6 +120,6 @@ $general = get_field( 'general', 'options' );
 </div>
 
 <?php wp_footer(); ?>
-
+<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>

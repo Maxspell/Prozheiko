@@ -10,7 +10,10 @@
             <div class="swiper reviews__slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/reviews1.jpg" alt="">
+                        <video controls autoplay loop class="reviews__video">
+                            <source src="/wp-content/themes/prozheiko/assets/img/reviews-1.mp4" type="video/mp4">
+                        </video>
+                        <!-- <img src="/wp-content/themes/prozheiko/assets/img/reviews1.jpg" alt=""> -->
                         <div class="reviews__slide-meta">
                             <div class="reviews__slide-badge">Відео відгук</div>
                             <div class="reviews__slide-badge">Послуга</div>
@@ -68,6 +71,9 @@
                         <div class="swiper-button-next"></div>
                     </div>
                     <div class="reviews__more">
+                        <svg class="arrow-right arrow-right--color" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
                         <a href="#" class="reviews__more-link">Більше відгуків в нашому Instagram</a>
                         <svg class="arrow-right" aria-hidden="true">
                             <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>

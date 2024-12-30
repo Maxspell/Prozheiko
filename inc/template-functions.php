@@ -92,3 +92,101 @@ add_filter('wpcf7_form_elements', function($content) {
     
     return $content;
 });
+
+function prozheiko_add_li_class_to_header_menu($classes, $item, $args) {
+    if (isset($args->theme_location) && $args->theme_location === 'header-menu') {
+        $classes[] = 'header__nav-item';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'prozheiko_add_li_class_to_header_menu', 10, 3);
+
+function prozheiko_add_li_class_to_footer_menu($classes, $item, $args) {
+    if (isset($args->theme_location) && $args->theme_location === 'footer-menu') {
+        $classes[] = 'footer__menu-item';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'prozheiko_add_li_class_to_footer_menu', 10, 3);
+
+function prozheiko_add_class_to_header_menu_links($atts, $item, $args) {
+    if (isset($args->theme_location) && $args->theme_location === 'header-menu') {
+        $atts['class'] = 'header__nav-link';
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'prozheiko_add_class_to_header_menu_links', 10, 3);
+
+function prozheiko_add_class_to_footer_menu_links($atts, $item, $args) {
+    if (isset($args->theme_location) && $args->theme_location === 'footer-menu') {
+        $atts['class'] = 'footer__menu-link';
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'prozheiko_add_class_to_footer_menu_links', 10, 3);
+
+function prozheiko_add_custom_class_to_services_menu($atts, $item, $args) {
+    if ($args->theme_location === 'header-menu' && $item->title === 'Послуги та ціни') {
+        $atts['class'] = 'header__nav-link header__nav-link--services';
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'prozheiko_add_custom_class_to_services_menu', 10, 3);
+
+function prozheiko_add_services_submenu($items, $args) {
+    if ($args->theme_location === 'header-menu') {
+        $menu_item_title = 'Послуги та ціни';
+        $service_categories = get_terms([
+            'taxonomy'   => 'service_category',
+            'hide_empty' => true,
+        ]);
+
+        if (!empty($service_categories) && !is_wp_error($service_categories)) {
+            $submenu_html = '<div class="header__nav-subnav"><div class="service-section__list">';
+
+            foreach ($service_categories as $category) {
+                $submenu_html .= '<div class="service-section__item">';
+                $submenu_html .= '<h3 class="service-section__title">' . esc_html($category->name) . '</h3>';
+
+                $service_posts = new WP_Query([
+                    'post_type'      => 'service',
+                    'posts_per_page' => -1,
+                    'tax_query'      => [
+                        [
+                            'taxonomy' => 'service_category',
+                            'field'    => 'term_id',
+                            'terms'    => $category->term_id,
+                        ],
+                    ],
+                ]);
+
+                if ($service_posts->have_posts()) {
+                    $submenu_html .= '<ul class="service-section__details">';
+                    while ($service_posts->have_posts()) {
+                        $service_posts->the_post();
+                        $submenu_html .= '<li class="service-section__detail">';
+                        $submenu_html .= '<a href="' . get_permalink() . '" class="service-section__link">' . get_the_title() . '</a>';
+                        $submenu_html .= '</li>';
+                    }
+                    $submenu_html .= '</ul>';
+                }
+                wp_reset_postdata();
+
+                $submenu_html .= '</div>';
+            }
+
+            $submenu_html .= '</div></div>';
+
+            $items = str_replace(
+                '<a href="#" class="header__nav-link header__nav-link--services">' . $menu_item_title . '</a>',
+                '<a href="#" class="header__nav-link header__nav-link--services">' . $menu_item_title . '</a>' . $submenu_html,
+                $items
+            );
+        }
+    }
+
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'prozheiko_add_services_submenu', 10, 2);
+
+

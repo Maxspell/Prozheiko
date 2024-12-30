@@ -3,7 +3,7 @@
 <section class="smile">
     <div class="container">
         <ul class="smile__items">        
-            <li class="smile__item">
+            <li class="smile__item smile__item--active">
                 <span>01</span>
                 <span class="smile__item-text"><?= $smile['text_1'] ?></span>
             </li>

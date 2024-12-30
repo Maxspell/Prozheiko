@@ -106,32 +106,7 @@ if (typeof Swiper !== 'undefined') {
   });
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const menuItem = document.querySelector('.header__nav-item--services');
-//   const subNav = document.querySelector('.header__nav-subnav');
-
-//   if (menuItem && subNav) {
-//       // Функция для добавления класса
-//       const showSubNav = () => {
-//           subNav.classList.add('active');
-//       };
-
-//       // Функция для удаления класса
-//       const hideSubNav = (event) => {
-//           const relatedTarget = event.relatedTarget; // Куда переместился курсор
-//           if (!menuItem.contains(relatedTarget) && !subNav.contains(relatedTarget)) {
-//               subNav.classList.remove('active');
-//           }
-//       };
-
-//       // Добавление событий
-//       menuItem.addEventListener('mouseenter', showSubNav);
-//       menuItem.addEventListener('mouseleave', hideSubNav);
-//       subNav.addEventListener('mouseenter', showSubNav);
-//       subNav.addEventListener('mouseleave', hideSubNav);
-//   }
-// });
-
+/* Article TOC */
 document.addEventListener("DOMContentLoaded", () => {
   const articleContent = document.querySelector(".article__content");
   const articleTOC = document.querySelector(".article__toc");

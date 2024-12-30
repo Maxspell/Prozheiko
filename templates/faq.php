@@ -9,6 +9,9 @@
                     </div>
                     <h2 class="faq__title section-title"><?= $faq['title'] ?></h2>
                     <div class="faq__more section-more">
+                        <svg class="arrow-right arrow-right--color" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                        </svg>
                         <a href="#" class="section-more__link popup-link" data-popup="popupForm">Поставити запитання</a>
                         <svg class="arrow-right" aria-hidden="true">
                             <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>

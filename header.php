@@ -70,6 +70,11 @@
 						<li><a href="<?= $general['phone_1']['url'] ?>"><?= $general['phone_1']['title'] ?></a></li>
 						<li><a href="<?= $general['phone_2']['url'] ?>"><?= $general['phone_2']['title'] ?></a></li>
 					</ul>
+					<div class="burger-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
 				</div>
 			</div>
 		</div>

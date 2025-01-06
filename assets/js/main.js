@@ -375,4 +375,32 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', truncateText);
 });
 
+if (window.innerWidth < 1024) {
+  const menu = document.querySelector(".header__nav");
+  const menuBtn = document.querySelector(".burger-menu");
+  const menuPhone = document.querySelector(".header__phones");
+  const menuLinks = document.querySelectorAll('.header__nav-link');
+  const body = document.body;
+    
+  if (menu && menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      menuBtn.classList.toggle("active");
+      menuPhone.classList.toggle("active");
+      body.classList.toggle("lock");
+    });
+
+    menuLinks.forEach(menuLink => {
+        menuLink.addEventListener('click', () => {
+            if (menuBtn.classList.contains('active')) {
+                document.body.classList.remove('lock');
+                menuBtn.classList.remove('active');
+                menu.classList.remove('active');
+                menuPhone.classList.remove('active');
+            }
+        });
+    });
+  }
+}
+
 

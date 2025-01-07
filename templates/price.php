@@ -33,113 +33,54 @@
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="swiper doctors__slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide doctors__slide">
-                                <img src="/wp-content/themes/prozheiko/assets/img/doctor.jpg" alt="">
-                                <div class="doctors__slide-title">Прожейко Сергій</div>
-                                <div class="doctors__slide-subtitle">Головний лікар, Лікар-ортопед</div>
-                                <ul class="doctors__services">
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Вініри
-                                    </li>
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Реставрація зубів
-                                    </li>
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Протезування
-                                    </li>
-                                </ul>
-                                <button type="button" class="contact-form__button button popup-link" data-popup="popupForm">
-                                    <svg class="arrow-right arrow-right--left" aria-hidden="true">
-                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                                    </svg>
-                                    <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
-                                    <svg class="arrow-right" aria-hidden="true">
-                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                                    </svg>
-                                </button>
+                    <?php if ( !empty( $price['doctors'] ) ) : ?>
+                        <div class="swiper doctors__slider">
+                            <div class="swiper-wrapper">
+                                <?php foreach ( $price['doctors'] as $item ) : ?>
+                                    <div class="swiper-slide doctors__slide">
+                                        <?php 
+                                            $doctor_image = get_field( 'general_image', $item->ID );
+                                            $doctor_role = get_field( 'general_role', $item->ID );
+                                            $doctor_services = get_field( 'general_services', $item->ID );
+                                        ?>
+                                        <img src="<?php echo esc_url( $doctor_image ); ?>" alt="">
+                                        <div class="doctors__slide-title"><?php echo esc_html( $item->post_title ); ?></div>
+                                        <div class="doctors__slide-subtitle"><?php echo esc_html( $doctor_role ); ?></div>
+                                        <?php if ( !empty( $doctor_services ) ) : ?>
+                                            <ul class="doctors__services">
+                                                <?php foreach ( $doctor_services as $service ) : ?>
+                                                    <?php if ( !empty( $service['service'] ) ) : ?>
+                                                        <li class="doctors__service">
+                                                            <svg class="check-icon" aria-hidden="true">
+                                                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
+                                                            </svg>
+                                                            <?php echo esc_html( $service['service'] ); ?>
+                                                        </li>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?> 
+                                            </ul>
+                                        <?php endif; ?> 
+                                        <button type="button" class="contact-form__button button popup-link" data-popup="popupForm">
+                                            <svg class="arrow-right arrow-right--left" aria-hidden="true">
+                                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                                            </svg>
+                                            <span class="button-text">ЗАПИСАТИСЬ НА ВІЗИТ</span>
+                                            <svg class="arrow-right" aria-hidden="true">
+                                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
-                            <div class="swiper-slide doctors__slide">
-                                <img src="/wp-content/themes/prozheiko/assets/img/doctor.jpg" alt="">
-                                <div class="doctors__slide-title">Прожейко Сергій</div>
-                                <div class="doctors__slide-subtitle">Головний лікар, Лікар-ортопед</div>
-                                <ul class="doctors__services">
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Вініри
-                                    </li>
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Реставрація зубів
-                                    </li>
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Протезування
-                                    </li>
-                                </ul>
-                                <button type="button" class="contact-form__button button">
-                                    <span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
-                                    <svg class="arrow-right" aria-hidden="true">
-                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="swiper-slide doctors__slide">
-                                <img src="/wp-content/themes/prozheiko/assets/img/doctor.jpg" alt="">
-                                <div class="doctors__slide-title">Прожейко Сергій</div>
-                                <div class="doctors__slide-subtitle">Головний лікар, Лікар-ортопед</div>
-                                <ul class="doctors__services">
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Вініри
-                                    </li>
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Реставрація зубів
-                                    </li>
-                                    <li class="doctors__service">
-                                        <svg class="check-icon" aria-hidden="true">
-                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#check"></use>
-                                        </svg>
-                                        Протезування
-                                    </li>
-                                </ul>
-                                <button type="button" class="contact-form__button button">
-                                    <span>ЗАПИСАТИСЬ НА ВІЗИТ</span>
-                                    <svg class="arrow-right" aria-hidden="true">
-                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
-                                    </svg>
-                                </button>
+                            <div class="swiper-actions">
+                                <div class="swiper-pagination"></div>
+                                <div class="reviews__buttons">
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="swiper-actions">
-                            <div class="swiper-pagination"></div>
-                            <div class="reviews__buttons">
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

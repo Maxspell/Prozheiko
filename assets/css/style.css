@@ -391,35 +391,89 @@ p:last-child {
   height: 8.8rem;
 }
 
-.angle-up-icon-wrapper {
+.angle-up-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.angle-up-icons {
   position: relative;
   width: 2.4rem;
   height: 2.4rem;
   overflow: hidden;
 }
 
-.angle-up-icon {
-  width: 1.8rem;
-  height: 1rem;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.angle-up-icon--primary {
+  z-index: 2;
 }
 
-.angle-up-icon.clone {
-  top: 100%;
-  transform: translateY(0) translateX(-50%);
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.angle-up-icon-wrapper:hover .angle-up-icon {
-  transform: translateY(-100%);
+.angle-up-icon--secondary {
+  color: var(--color-primary);
+  z-index: 1;
+  transform: translateY(100%);
   opacity: 0;
 }
 
-.angle-up-icon-wrapper:hover .angle-up-icon.clone {
-  transform: translateY(-100%);
-  opacity: 1;
+.angle-up-icons:hover .angle-up-icon--primary {
+  animation: icon-move-up 1s forwards;
+}
+.angle-up-icons:hover .angle-up-icon--secondary {
+  animation: icon-move-down 1s forwards;
+}
+
+.angle-up-icons:not(:hover) .angle-up-icon--primary {
+  animation: icon-move-down-reverse 1s forwards;
+}
+.angle-up-icons:not(:hover) .angle-up-icon--secondary {
+  animation: icon-move-up-reverse 1s forwards;
+}
+
+@keyframes icon-move-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes icon-move-down {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes icon-move-down-reverse {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes icon-move-up-reverse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }
 
 .angle-left-icon,
@@ -1684,6 +1738,10 @@ p:last-child {
 
 .doctors__slider {
   width: 29.5rem;
+}
+
+.doctors__slider .swiper-wrapper {
+  height: auto;
 }
 
 .doctors__slide img {
@@ -3033,5 +3091,95 @@ p:last-child {
     flex-direction: column;
     align-items: flex-start;
     row-gap: 1.6rem;
+  }
+}
+
+/* Общие стили */
+.test-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Контейнер для иконок */
+.icon-container {
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+  overflow: hidden;
+}
+
+/* Начальные позиции иконок */
+.icon-1 {
+  z-index: 2;
+}
+.icon-2 {
+  color: var(--color-primary);
+  z-index: 1;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Анимация при наведении */
+.icon-container:hover .icon-1 {
+  animation: move-up 1s forwards;
+}
+.icon-container:hover .icon-2 {
+  animation: move-down 1s forwards;
+}
+
+/* Анимация возврата */
+.icon-container:not(:hover) .icon-1 {
+  animation: move-down-reverse 1s forwards;
+}
+.icon-container:not(:hover) .icon-2 {
+  animation: move-up-reverse 1s forwards;
+}
+
+/* Ключевые кадры для анимации */
+@keyframes move-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move-down-reverse {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move-up-reverse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
   }
 }

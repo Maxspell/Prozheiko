@@ -24,9 +24,14 @@
                             <div class="faq__item">
                                 <div class="faq__item-head">
                                     <div class="faq__item-title"><?= $item['question'] ?></div>
-                                    <svg class="angle-up-icon" aria-hidden="true">
-                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-up"></use>
-                                    </svg>
+                                    <div class="angle-up-icons">
+                                        <svg class="angle-up-icon angle-up-icon--primary" aria-hidden="true">
+                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-up"></use>
+                                        </svg>
+                                        <svg class="angle-up-icon angle-up-icon--secondary" aria-hidden="true">
+                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-up"></use>
+                                        </svg>
+                                    </div>
                                 </div>
                                 <div class="faq__item-content"><?= $item['answer'] ?></div>
                             </div>

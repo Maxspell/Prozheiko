@@ -51,7 +51,7 @@ $hero = get_field( 'hero' );
                     <div class="hero-service__title"><?= $title ?></div>
                     <div class="hero-service__description"><?= $hero['description'] ?></div>
                     <div class="hero-service__actions">
-                        <button type="button" class="button popup-link" data-popup="popupForm">
+                        <a href="#price" class="button">
                             <svg class="arrow-right arrow-right--left" aria-hidden="true">
                                 <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                             </svg>
@@ -59,7 +59,7 @@ $hero = get_field( 'hero' );
                             <svg class="arrow-right" aria-hidden="true">
                                 <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
                             </svg>
-                        </button>
+                        </a>
                         <span class="hero-service__price"><?= $general['price'] ?></span>
                     </div>
                 </div>

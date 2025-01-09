@@ -4,9 +4,9 @@
     <div class="container">
         <div class="about__header section-header">
             <div class="about__label section-label">
-                <span class="label-text">Досвід та принципи</span>
+                <span class="label-text"><?= $about['label'] ?></span>
             </div>
-            <h2 class="about__title section-title">Авторська стоматологія<br><span>PROZHEIKO dental</span></h2>
+            <h2 class="about__title section-title"><?= $about['title'] ?></h2>
         </div>
         <div class="about__inner">
             <div class="about__content">

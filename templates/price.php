@@ -1,6 +1,6 @@
 <?php $price = get_field( 'price' ) ?>
 <?php if ( !$price['disabled'] ) { ?>
-    <section class="price">
+    <section class="price" id="price">
         <div class="container">
             <div class="price__inner">
                 <div class="price__header section-header">

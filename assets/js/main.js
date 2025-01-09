@@ -258,6 +258,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.getElementById('play-button');
+
+  if (!playButton) return;
+
   const videoContainer = document.getElementById('video-container');
   const videoCodeContainer = document.getElementById('video-code');
 
@@ -329,6 +332,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function () {
   const moreLink = document.querySelector('.seo__more-link');
+
+  if (!moreLink) return;
+  
   const seoText = document.querySelector('.seo__text');
   const arrowIcon = document.querySelector('.seo .arrow-right');
 
@@ -375,32 +381,95 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', truncateText);
 });
 
-if (window.innerWidth < 1024) {
+const setupMobileMenu = () => {
   const menu = document.querySelector(".header__nav");
   const menuBtn = document.querySelector(".burger-menu");
   const menuPhone = document.querySelector(".header__phones");
-  const menuLinks = document.querySelectorAll('.header__nav-link');
+  const menuLinks = document.querySelectorAll(".header__nav-link");
   const body = document.body;
-    
-  if (menu && menuBtn) {
-    menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("active");
-      menuBtn.classList.toggle("active");
-      menuPhone.classList.toggle("active");
-      body.classList.toggle("lock");
-    });
 
-    menuLinks.forEach(menuLink => {
-        menuLink.addEventListener('click', () => {
-            if (menuBtn.classList.contains('active')) {
-                document.body.classList.remove('lock');
-                menuBtn.classList.remove('active');
-                menu.classList.remove('active');
-                menuPhone.classList.remove('active');
-            }
-        });
-    });
+  const handleMenuToggle = () => {
+    menu.classList.toggle("active");
+    menuBtn.classList.toggle("active");
+    menuPhone.classList.toggle("active");
+    body.classList.toggle("lock");
+  };
+
+  const handleMenuLinkClick = () => {
+    if (menuBtn.classList.contains("active")) {
+      menu.classList.remove("active");
+      menuBtn.classList.remove("active");
+      menuPhone.classList.remove("active");
+      body.classList.remove("lock");
+    }
+  };
+
+  if (window.innerWidth < 1024) {
+    if (menu && menuBtn) {
+      menuBtn.addEventListener("click", handleMenuToggle);
+
+      menuLinks.forEach((menuLink) => {
+        menuLink.addEventListener("click", handleMenuLinkClick);
+      });
+    }
+  } else {
+    // Убираем обработчики при расширении экрана больше 1024px
+    if (menu && menuBtn) {
+      menuBtn.removeEventListener("click", handleMenuToggle);
+
+      menuLinks.forEach((menuLink) => {
+        menuLink.removeEventListener("click", handleMenuLinkClick);
+      });
+    }
+    // Убираем активные классы
+    menu?.classList.remove("active");
+    menuBtn?.classList.remove("active");
+    menuPhone?.classList.remove("active");
+    body.classList.remove("lock");
   }
-}
+};
+
+// Добавляем слушатель на изменение размера окна
+window.addEventListener("resize", setupMobileMenu);
+
+// Первичная инициализация
+setupMobileMenu();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const listWrapper = document.querySelector('.price__list-wrapper');
+
+  if (!listWrapper) return;
+
+  const list = listWrapper.querySelector('.price__list');
+  const items = list.querySelectorAll('.price__item');
+  const toggleButton = listWrapper.querySelector('.section-more__link');
+
+  const maxVisibleItems = 5;
+
+  const updateListState = () => {
+      const isExpanded = toggleButton.dataset.expanded === 'true';
+
+      items.forEach((item, index) => {
+          if (index < maxVisibleItems || isExpanded) {
+              item.style.display = 'block';
+          } else {
+              item.style.display = 'none';
+          }
+      });
+
+      toggleButton.textContent = isExpanded ? 'Згорнути весь список' : 'Розгорнути весь список';
+  };
+
+  toggleButton.dataset.expanded = 'false';
+  updateListState();
+
+  toggleButton.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      toggleButton.dataset.expanded = toggleButton.dataset.expanded === 'true' ? 'false' : 'true';
+
+      updateListState();
+  });
+});
 
 

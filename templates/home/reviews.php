@@ -10,10 +10,10 @@
             <div class="swiper reviews__slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <video controls autoplay loop class="reviews__video">
+                        <!-- <video controls autoplay loop class="reviews__video">
                             <source src="/wp-content/themes/prozheiko/assets/img/reviews-1.mp4" type="video/mp4">
-                        </video>
-                        <!-- <img src="/wp-content/themes/prozheiko/assets/img/reviews1.jpg" alt=""> -->
+                        </video> -->
+                        <img src="/wp-content/themes/prozheiko/assets/img/reviews1.jpg" alt="">
                         <div class="reviews__slide-meta">
                             <div class="reviews__slide-badge">Відео відгук</div>
                             <div class="reviews__slide-badge">Послуга</div>
@@ -40,8 +40,8 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="/wp-content/themes/prozheiko/assets/img/reviews3.jpg" alt="">
+                    <div class="swiper-slide reviews__slide">
+                        <img class="reviews__slide-img" src="/wp-content/themes/prozheiko/assets/img/reviews3.jpg" alt="">
                         <div class="reviews__slide-meta">
                             <div class="reviews__slide-badge">Відгук</div>
                             <div class="reviews__slide-badge">Послуга</div>

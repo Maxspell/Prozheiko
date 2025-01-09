@@ -942,6 +942,7 @@ p:last-child {
 }
 
 .leaders__inner {
+  position: relative;
   margin-left: -2.4rem;
   margin-right: -2.4rem;
 }
@@ -949,6 +950,60 @@ p:last-child {
 .leaders__image {
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
+}
+
+.leaders__overlay--left {
+  position: absolute;
+  top: 26.7rem;
+  left: 30.4rem;
+  background-image: url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-left.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20rem;
+  height: 9.4rem;
+}
+
+.leaders__overlay--right {
+  position: absolute;
+  top: 17.3rem;
+  right: 18.2rem;
+  background-image: url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-right.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20rem;
+  height: 9.4rem;
+}
+
+.leaders__overlay--left .quotes-icon {
+  position: absolute;
+  top: -1.5rem;
+  left: 2.4rem;
+  width: 2.4rem;
+  height: 2.1rem;
+}
+
+.leaders__overlay--right .quotes-icon {
+  position: absolute;
+  top: -1.5rem;
+  right: 1.6rem;
+  width: 2.4rem;
+  height: 2.1rem;
+}
+
+.close-leaders-primary-icon {
+  position: absolute;
+  bottom: -2.4rem;
+  right: -1.6rem;
+  width: 3.2rem;
+  height: 4rem;
+}
+
+.close-leaders-secondary-icon {
+  position: absolute;
+  bottom: -2.4rem;
+  left: -1.6rem;
+  width: 3.2rem;
+  height: 4rem;
 }
 
 .leaders__content {
@@ -1251,6 +1306,19 @@ p:last-child {
   transform: translateX(100%);
 }
 
+.reviews__slide-img {
+  transition: transform 0.5s ease;
+}
+
+.reviews__slide-img:hover  {
+  transform: scale(1.2);
+}
+
+.reviews__slide {
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
 /* Video section */
 
 .video__inner {
@@ -1276,6 +1344,16 @@ p:last-child {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M72.0429 58.5C73.4778 59.3284 73.9786 61.1708 73.045 62.5396C68.6728 68.9498 62.5158 73.9693 55.3073 76.9552C47.1722 80.3249 38.1526 80.916 29.6472 78.637C21.1419 76.358 13.6262 71.3362 8.26587 64.3505C3.51607 58.1604 0.693748 50.7348 0.112424 42.9974C-0.0117077 41.3452 1.34315 40 3 40C4.65685 40 5.98625 41.3458 6.13224 42.9963C6.6997 49.4113 9.08051 55.5561 13.026 60.6979C17.5823 66.6358 23.9706 70.9043 31.2002 72.8415C38.4297 74.7786 46.0964 74.2761 53.0112 71.4119C58.999 68.9317 64.1333 64.8006 67.8322 59.5287C68.7839 58.1724 70.6081 57.6716 72.0429 58.5Z' fill='%2310979B'/%3E%3Cpath d='M32.4171 31.4179C31 32.6163 31 35.0775 31 40C31 44.9225 31 47.3837 32.4171 48.5821C32.7198 48.8381 33.0589 49.0477 33.4233 49.204C35.1289 49.9355 37.3303 48.8348 41.7331 46.6334C47.0274 43.9863 49.6746 42.6627 50.0037 40.6433C50.0731 40.2172 50.0731 39.7828 50.0037 39.3567C49.6746 37.3373 47.0274 36.0137 41.7331 33.3666C37.3303 31.1652 35.1289 30.0645 33.4233 30.796C33.0589 30.9523 32.7198 31.1619 32.4171 31.4179Z' fill='%2310979B'/%3E%3C/svg%3E%0A");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 8rem;
+  height: 8rem;
+}
+
+.video__play:hover {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40ZM6 40C6 58.7777 21.2223 74 40 74C58.7777 74 74 58.7777 74 40C74 21.2223 58.7777 6 40 6C21.2223 6 6 21.2223 6 40Z' fill='%2310979B'/%3E%3Cpath d='M32.4171 31.4179C31 32.6163 31 35.0775 31 40C31 44.9225 31 47.3837 32.4171 48.5821C32.7198 48.8381 33.0589 49.0477 33.4233 49.204C35.1289 49.9355 37.3303 48.8348 41.7331 46.6334C47.0274 43.9863 49.6746 42.6627 50.0037 40.6433C50.0731 40.2172 50.0731 39.7828 50.0037 39.3567C49.6746 37.3373 47.0274 36.0137 41.7331 33.3666C37.3303 31.1652 35.1289 30.0645 33.4233 30.796C33.0589 30.9523 32.7198 31.1619 32.4171 31.4179Z' fill='%2310979B'/%3E%3C/svg%3E ");
 }
 
 #video-container iframe {
@@ -2705,8 +2783,8 @@ p:last-child {
   .header__nav .header__nav-list > * + * {
     margin: 0 !important;
   }
-  .header__nav .header__nav-link {
-
+  .header__nav-link::before {
+    display: none;
   }
 
   .header__nav-item {
@@ -2817,6 +2895,10 @@ p:last-child {
   .leaders__inner {
     margin-left: -1.6rem;
     margin-right: -1.6rem;
+  }
+  .leaders__overlay--left,
+  .leaders__overlay--right {
+    display: none;
   }
   .leaders__content {
     padding: 4rem 1.6rem 6.4rem;

@@ -140,9 +140,11 @@ add_action( 'widgets_init', 'prozheiko_widgets_init' );
  */
 function prozheiko_scripts() {
 	wp_enqueue_style( 'prozheiko-swiper', get_template_directory_uri() . '/assets/css/swiper.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'prozheiko-fancybox', get_template_directory_uri() . '/assets/css/fancybox.css', array(), _S_VERSION );
 	wp_enqueue_style( 'prozheiko-style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'prozheiko-swiper', get_template_directory_uri() . '/assets/js/swiper.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'prozheiko-fancybox', get_template_directory_uri() . '/assets/js/fancybox.umd.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'prozheiko-main', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'prozheiko_scripts' );

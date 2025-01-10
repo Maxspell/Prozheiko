@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const moreLink = document.querySelector('.seo__more-link');
 
   if (!moreLink) return;
-  
+
   const seoText = document.querySelector('.seo__text');
   const arrowIcon = document.querySelector('.seo .arrow-right');
 
@@ -470,6 +470,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       updateListState();
   });
+});
+
+Fancybox.bind('[data-fancybox="gallery"]', {
+  // Your custom options for a specific gallery
 });
 
 

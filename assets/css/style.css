@@ -1224,6 +1224,7 @@ p:last-child {
 .reviews__slide-badge {
   background-color: var(--color-light-gray);
   border-radius: 0.4rem;
+  color: var(--color-secondary);
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1;
@@ -1235,9 +1236,14 @@ p:last-child {
 }
 
 .reviews__video {
-  max-width: 29.5rem;
-  border-radius: 0.4rem;
+  max-width: 40rem;
+  border-radius: 0.8rem;
   overflow: hidden;
+}
+
+.fancybox__content {
+  border-radius: 0.8rem !important;
+  padding: 0 !important;
 }
 
 .reviews__comparison {
@@ -1310,13 +1316,31 @@ p:last-child {
   transition: transform 0.5s ease;
 }
 
-.reviews__slide-img:hover  {
+.reviews__slide:hover .reviews__slide-img  {
   transform: scale(1.2);
 }
 
 .reviews__slide {
   border-radius: 0.4rem;
   overflow: hidden;
+}
+
+.reviews__slide .video__play {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reviews__slide:hover .video__play {
+  opacity: 1;
+}
+
+.reviews__slide--video .video__play {
+  opacity: 1;
+}
+
+.reviews__slide-link {
+  display: block;
+  position: relative;
 }
 
 /* Video section */

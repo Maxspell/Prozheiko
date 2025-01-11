@@ -389,14 +389,20 @@ const setupMobileMenu = () => {
   const body = document.body;
 
   const handleMenuToggle = () => {
+    if (menu.classList.contains("subactive")) {
+      menu.classList.remove("subactive");
+    }
+
     menu.classList.toggle("active");
     menuBtn.classList.toggle("active");
     menuPhone.classList.toggle("active");
     body.classList.toggle("lock");
   };
 
-  const handleMenuLinkClick = () => {
-    if (menuBtn.classList.contains("active")) {
+  const handleMenuLinkClick = (event) => {
+    const isServicesLink = event.target.classList.contains("header__nav-link--services");
+
+    if (!isServicesLink && menuBtn.classList.contains("active")) {
       menu.classList.remove("active");
       menuBtn.classList.remove("active");
       menuPhone.classList.remove("active");
@@ -475,5 +481,51 @@ document.addEventListener('DOMContentLoaded', () => {
 Fancybox.bind('[data-fancybox="gallery"]', {
   // Your custom options for a specific gallery
 });
+
+// Функция для переноса элемента// Функция для переноса элемента
+function moveElementOnScreenSize() {
+  const subNav = document.querySelector('.header__nav-subnav');
+  const targetContainer = document.querySelector('.header__inner--bottom');
+  const originalParent = document.querySelector('.header__nav-item--services');
+
+  // Проверяем, существуют ли элементы
+  if (!subNav || !targetContainer || !originalParent) return;
+
+  if (window.innerWidth < 1024) {
+      // Если размер экрана меньше 1024px и элемент ещё не перенесён
+      if (subNav.parentElement !== targetContainer) {
+          targetContainer.appendChild(subNav);
+      }
+  } else {
+      // Если размер экрана больше или равен 1024px и элемент нужно вернуть
+      if (subNav.parentElement !== originalParent) {
+          originalParent.appendChild(subNav);
+      }
+  }
+}
+
+// Слушатель для изменения размера окна
+window.addEventListener('resize', moveElementOnScreenSize);
+
+// Выполняем перенос при загрузке страницы
+document.addEventListener('DOMContentLoaded', moveElementOnScreenSize);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const servicesLink = document.querySelector(".header__nav-link--services");
+  const navBlock = document.querySelector(".header__nav");
+  const subNavBlock = document.querySelector(".header__nav-subnav");
+
+  if (!servicesLink || !navBlock || !subNavBlock) return;
+
+  servicesLink.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (window.innerWidth < 1024) {
+      navBlock.classList.toggle("subactive");
+      subNavBlock.classList.toggle("subactive");
+    }
+  });
+});
+
 
 

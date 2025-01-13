@@ -31,6 +31,21 @@
                     <?php } ?>
                     </div>
                 </div>
+                <div class="accordion">
+                    <?php foreach ( $about['tabs'] as $index => $item ) { ?>
+                        <div class="accordion__item">
+                            <button class="accordion__header" aria-expanded="false" aria-controls="panel-<?= $index + 1; ?>">
+                                <span><?= $item['title'] ?></span>
+                                <svg class="angle-up-icon angle-up-icon--accordion" aria-hidden="true">
+                                    <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-up"></use>
+                                </svg>
+                            </button>
+                            <div class="accordion__content" id="panel-<?= $index + 1; ?>">
+                                <?= $item['content'] ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
             <?php } ?>
             </div>
             <div class="about__contact-card contact-card">

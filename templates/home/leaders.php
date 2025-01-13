@@ -1,6 +1,6 @@
 <?php $leaders = get_field( 'leaders' ) ?>
 <?php if ( !$leaders['disabled'] ) { ?>
-<section class="leaders">
+<section class="leaders" id="leaders">
     <div class="container">
         <div class="leaders__inner">
             <img class="leaders__image" src="/wp-content/themes/prozheiko/assets/img/leaders.jpg" alt="">

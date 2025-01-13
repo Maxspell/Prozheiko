@@ -142,7 +142,7 @@ function prozheiko_add_services_submenu($items, $args) {
         ]);
 
         if (!empty($service_categories) && !is_wp_error($service_categories)) {
-            $submenu_html = '<div class="header__nav-subnav"><div class="service-section__list">';
+            $submenu_html = '<div class="header__nav-subnav"><div class="header__nav-subnav-inner"><div class="service-section__list">';
 
             foreach ($service_categories as $category) {
                 $submenu_html .= '<div class="service-section__item">';
@@ -175,7 +175,7 @@ function prozheiko_add_services_submenu($items, $args) {
                 $submenu_html .= '</div>';
             }
 
-            $submenu_html .= '</div></div>';
+            $submenu_html .= '</div></div></div>';
 
             $items = str_replace(
                 '<a href="#" class="header__nav-link header__nav-link--services">' . $menu_item_title . '</a>',

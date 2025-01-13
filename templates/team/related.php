@@ -23,15 +23,27 @@ if ( isset($args['related_posts']) && $args['related_posts']->have_posts() ) :
                             <?php endif; ?>
                             <div class="related__article-head">
                                 <h3 class="related__article-title"><?php the_title(); ?></h3>
-                                <p class="related__article-category">
+                                <div class="related__article-category">
                                     <?php 
                                     $category = get_the_category();
                                     echo !empty($category) ? esc_html($category[0]->name) : '';
                                     ?>
-                                </p>    
+                                </div>
+                                <div class="related__article-more">
+                                    <span>Читати статтю</span>
+                                    <svg class="arrow-right" aria-hidden="true">
+                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="related__article-avatar">
-                                <img src="/wp-content/themes/prozheiko/assets/img/avatar.jpg" alt="">
+                            <div class="related__article-meta">
+                                <div class="related__article-author">
+                                    <div class="related__article-author-name">Прожейко Сергій</div>
+                                    <div class="related__article-author-role">Головний лікар</div>
+                                </div>
+                                <div class="related__article-avatar">
+                                    <img src="/wp-content/themes/prozheiko/assets/img/avatar.jpg" alt="">
+                                </div>
                             </div>
                         </a>
                     </article>

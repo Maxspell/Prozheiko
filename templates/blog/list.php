@@ -42,19 +42,31 @@
                         <article class="blog__article">
                             <a href="<?php the_permalink(); ?>" class="blog__article-link">
                                 <?php if ( !empty($post_general['image_in_list']) ) : ?>
-                                    <img src="<?php echo esc_url($post_general['image_in_list']); ?>" alt="<?php the_title(); ?>" class="related__article-image">
+                                    <img src="<?php echo esc_url($post_general['image_in_list']); ?>" alt="<?php the_title(); ?>" class="blog__article-image">
                                 <?php endif; ?>
                                 <div class="blog__article-head">
                                     <h3 class="blog__article-title"><?php the_title(); ?></h3>
-                                    <p class="blog__article-category">
+                                    <div class="blog__article-category">
                                         <?php
                                         $category = get_the_category();
                                         echo !empty($category) ? esc_html($category[0]->name) : '';
                                         ?>
-                                    </p>
+                                    </div>
+                                    <div class="blog__article-more">
+                                        <span>Читати статтю</span>
+                                        <svg class="arrow-right" aria-hidden="true">
+                                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#arrow-right"></use>
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div class="blog__article-avatar">
-                                    <img src="<?php echo esc_url($team_image); ?>" alt="">
+                                <div class="blog__article-meta">
+                                    <div class="blog__article-author">
+                                        <div class="blog__article-author-name">Прожейко Сергій</div>
+                                        <div class="blog__article-author-role">Головний лікар</div>
+                                    </div>
+                                    <div class="blog__article-avatar">
+                                        <img src="<?php echo esc_url($team_image); ?>" alt="">
+                                    </div>
                                 </div>
                             </a>
                         </article>

@@ -383,6 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const setupMobileMenu = () => {
   const menu = document.querySelector(".header__nav");
+  const menuSub = document.querySelector(".header__nav-subnav");
   const menuBtn = document.querySelector(".burger-menu");
   const menuPhone = document.querySelector(".header__phones");
   const menuLinks = document.querySelectorAll(".header__nav-link");
@@ -391,6 +392,10 @@ const setupMobileMenu = () => {
   const handleMenuToggle = () => {
     if (menu.classList.contains("subactive")) {
       menu.classList.remove("subactive");
+    }
+
+    if (menuSub.classList.contains("subactive")) {
+      menuSub.classList.remove("subactive");
     }
 
     menu.classList.toggle("active");
@@ -419,7 +424,6 @@ const setupMobileMenu = () => {
       });
     }
   } else {
-    // Убираем обработчики при расширении экрана больше 1024px
     if (menu && menuBtn) {
       menuBtn.removeEventListener("click", handleMenuToggle);
 
@@ -427,7 +431,6 @@ const setupMobileMenu = () => {
         menuLink.removeEventListener("click", handleMenuLinkClick);
       });
     }
-    // Убираем активные классы
     menu?.classList.remove("active");
     menuBtn?.classList.remove("active");
     menuPhone?.classList.remove("active");
@@ -435,10 +438,9 @@ const setupMobileMenu = () => {
   }
 };
 
-// Добавляем слушатель на изменение размера окна
+
 window.addEventListener("resize", setupMobileMenu);
 
-// Первичная инициализация
 setupMobileMenu();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -482,32 +484,25 @@ Fancybox.bind('[data-fancybox="gallery"]', {
   // Your custom options for a specific gallery
 });
 
-// Функция для переноса элемента// Функция для переноса элемента
 function moveElementOnScreenSize() {
   const subNav = document.querySelector('.header__nav-subnav');
   const targetContainer = document.querySelector('.header__inner--bottom');
   const originalParent = document.querySelector('.header__nav-item--services');
 
-  // Проверяем, существуют ли элементы
   if (!subNav || !targetContainer || !originalParent) return;
 
   if (window.innerWidth < 1024) {
-      // Если размер экрана меньше 1024px и элемент ещё не перенесён
       if (subNav.parentElement !== targetContainer) {
           targetContainer.appendChild(subNav);
       }
   } else {
-      // Если размер экрана больше или равен 1024px и элемент нужно вернуть
       if (subNav.parentElement !== originalParent) {
           originalParent.appendChild(subNav);
       }
   }
 }
 
-// Слушатель для изменения размера окна
 window.addEventListener('resize', moveElementOnScreenSize);
-
-// Выполняем перенос при загрузке страницы
 document.addEventListener('DOMContentLoaded', moveElementOnScreenSize);
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -523,6 +518,33 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth < 1024) {
       navBlock.classList.toggle("subactive");
       subNavBlock.classList.toggle("subactive");
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const phonesElement = document.querySelector('.header__phones');
+  const navElement = document.querySelector('.header__nav');
+
+  if (!phonesElement || !navElement) return;
+
+  if (window.innerWidth < 1024) {
+    navElement.appendChild(phonesElement);
+  }
+});
+
+document.querySelectorAll('.accordion__header').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = document.getElementById(button.getAttribute('aria-controls'));
+
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', !isExpanded);
+    content.setAttribute('aria-hidden', isExpanded);
+
+    if (isExpanded) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
     }
   });
 });

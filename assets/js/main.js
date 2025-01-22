@@ -549,5 +549,45 @@ document.querySelectorAll('.accordion__header').forEach(button => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const plusPrimaryIcon = document.querySelector('.plus-leaders-primary-icon');
+  const quotesPrimaryIcon = document.querySelector('.quotes-leaders-primary-icon');
+  const closePrimaryIcon = document.querySelector('.close-leaders-primary-icon');
+  const overlayPrimary = document.querySelector('.leaders__overlay--left');
+
+  const plusSecondaryIcon = document.querySelector('.plus-leaders-secondary-icon');
+  const quotesSecondaryIcon = document.querySelector('.quotes-leaders-secodary-icon');
+  const closeSecondaryIcon = document.querySelector('.close-leaders-secondary-icon');
+  const overlaySecondary = document.querySelector('.leaders__overlay--right');
+
+  plusPrimaryIcon.addEventListener('click', () => {
+      plusPrimaryIcon.classList.add('hidden');
+      quotesPrimaryIcon.classList.remove('hidden');
+      closePrimaryIcon.classList.remove('hidden');
+      overlayPrimary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-left.svg')";
+  });
+
+  closePrimaryIcon.addEventListener('click', () => {
+      plusPrimaryIcon.classList.remove('hidden');
+      quotesPrimaryIcon.classList.add('hidden');
+      closePrimaryIcon.classList.add('hidden');
+      overlayPrimary.style.backgroundImage = "none";
+  });
+
+  plusSecondaryIcon.addEventListener('click', () => {
+      plusSecondaryIcon.classList.add('hidden');
+      quotesSecondaryIcon.classList.remove('hidden');
+      closeSecondaryIcon.classList.remove('hidden');
+      overlaySecondary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-right.svg')";
+  });
+
+  closeSecondaryIcon.addEventListener('click', () => {
+      plusSecondaryIcon.classList.remove('hidden');
+      quotesSecondaryIcon.classList.add('hidden');
+      closeSecondaryIcon.classList.add('hidden');
+      overlaySecondary.style.backgroundImage = "none";
+  });
+});
+
 
 

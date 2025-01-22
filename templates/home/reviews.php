@@ -39,7 +39,7 @@
                                             </button>
                                         </a>
                                         <div class="hidden">
-                                            <video controls autoplay class="reviews__video" id="reviewsVideo">
+                                            <video controls class="reviews__video" id="reviewsVideo">
                                                 <source src="<?php echo esc_url( $review_video ); ?>" type="video/mp4">
                                             </video> 
                                         </div>

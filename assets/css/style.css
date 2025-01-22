@@ -970,7 +970,7 @@ p:last-child {
   position: absolute;
   top: 26.7rem;
   left: 30.4rem;
-  background-image: url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-left.png');
+  background-image: none;
   background-repeat: no-repeat;
   background-size: contain;
   width: 20rem;
@@ -981,14 +981,18 @@ p:last-child {
   position: absolute;
   top: 17.3rem;
   right: 18.2rem;
-  background-image: url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-right.png');
+  background-image: none;
   background-repeat: no-repeat;
   background-size: contain;
   width: 20rem;
   height: 9.4rem;
 }
 
-.leaders__overlay--left .quotes-icon {
+.leaders__overlay-icons svg {
+  cursor: pointer;
+}
+
+.quotes-leaders-primary-icon {
   position: absolute;
   top: -1.5rem;
   left: 2.4rem;
@@ -996,7 +1000,7 @@ p:last-child {
   height: 2.1rem;
 }
 
-.leaders__overlay--right .quotes-icon {
+.quotes-leaders-secodary-icon {
   position: absolute;
   top: -1.5rem;
   right: 1.6rem;
@@ -1004,6 +1008,7 @@ p:last-child {
   height: 2.1rem;
 }
 
+.plus-leaders-primary-icon,
 .close-leaders-primary-icon {
   position: absolute;
   bottom: -2.4rem;
@@ -1012,6 +1017,7 @@ p:last-child {
   height: 4rem;
 }
 
+.plus-leaders-secondary-icon,
 .close-leaders-secondary-icon {
   position: absolute;
   bottom: -2.4rem;

@@ -6,21 +6,27 @@
             <img class="leaders__image" src="/wp-content/themes/prozheiko/assets/img/leaders.jpg" alt="">
             <div class="leaders__overlay--left">
                 <div class="leaders__overlay-icons">
-                    <svg class="quotes-icon" aria-hidden="true">
+                    <svg class="quotes-leaders-primary-icon hidden" aria-hidden="true">
                         <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#quotes"></use>
                     </svg>
-                    <svg class="close-leaders-primary-icon" aria-hidden="true">
+                    <svg class="plus-leaders-primary-icon" aria-hidden="true">
+                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-secondary"></use>
+                    </svg>
+                    <svg class="close-leaders-primary-icon hidden" aria-hidden="true">
                         <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-primary"></use>
                     </svg>
                 </div>
             </div>
             <div class="leaders__overlay--right">
                 <div class="leaders__overlay-icons">
-                    <svg class="quotes-icon" aria-hidden="true">
+                    <svg class="quotes-leaders-secodary-icon hidden" aria-hidden="true">
                         <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#quotes"></use>
                     </svg>
-                    <svg class="close-leaders-secondary-icon" aria-hidden="true">
+                    <svg class="plus-leaders-secondary-icon" aria-hidden="true">
                         <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-secondary"></use>
+                    </svg>
+                    <svg class="close-leaders-secondary-icon hidden" aria-hidden="true">
+                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-primary"></use>
                     </svg>
                 </div>
             </div>

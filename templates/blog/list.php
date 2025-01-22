@@ -4,7 +4,7 @@
             <h1 class="blog-section__title">Блог</h1>
             <ul class="blog__category-list">
                 <li class="blog__category-item active">
-                    <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="blog__category-link">
+                    <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="blog__category-link">
                         <span>Всі</span>
                         <span class="blog__category-amount"><?php echo wp_count_posts('post')->publish; ?></span>
                     </a>

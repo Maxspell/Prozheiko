@@ -15,6 +15,7 @@ if ( $author ) {
             ],
         ],
         'posts_per_page' => 3,
+        'post__not_in'   => [get_the_ID()],
     ]);
 } 
 

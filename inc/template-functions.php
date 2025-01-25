@@ -189,4 +189,16 @@ function prozheiko_add_services_submenu($items, $args) {
 }
 add_filter('wp_nav_menu_items', 'prozheiko_add_services_submenu', 10, 2);
 
+function translate_yoast_breadcrumb_links($links) {
+    foreach ($links as &$link) {
+        if ($link['text'] === 'Team') {
+            $link['text'] = 'Наша команда';
+        } elseif ($link['text'] === 'Blog') {
+            $link['text'] = 'Блог';
+        }
+    }
+    return $links;
+}
+add_filter('wpseo_breadcrumb_links', 'translate_yoast_breadcrumb_links', 10, 2);
+
 

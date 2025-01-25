@@ -36,11 +36,13 @@ if ( $author ) {
                         <li class="article__meta-item">
                             <span>Категорія:</span>
                             <?php 
-                                $category = get_the_category();
-                                if (!empty($category)) {
-                                    echo '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . 
-                                        esc_html($category[0]->name) . '</a>';
-                                }
+                            $terms = get_the_terms(get_the_ID(), 'blog_category');
+
+                            if (!empty($terms) && !is_wp_error($terms)) {
+                                $term = $terms[0];
+                                echo '<a href="' . esc_url(get_term_link($term)) . '">' . 
+                                    esc_html($term->name) . '</a>';
+                            }
                             ?>
                         </li>
                     </ul>

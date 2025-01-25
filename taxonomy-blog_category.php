@@ -1,12 +1,17 @@
+<?php
+get_header();
+?>
+
+	<main class="main">
+
+		<?php get_template_part( 'templates/common/breadcrumbs' ); ?>
+		
 <section class="blog-section">
     <div class="container">
         <div class="blog-section__inner">
             <h1 class="blog-section__title">Блог</h1>
             <ul class="blog__category-list">
-            <?php
-                $active_class = is_post_type_archive('blog') ? 'active' : '';
-            ?>
-                <li class="blog__category-item <?php echo $active_class; ?>">
+                <li class="blog__category-item">
                     <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="blog__category-link">
                         <span>Всі</span>
                         <span class="blog__category-amount"><?php echo wp_count_posts('post')->publish; ?></span>
@@ -20,8 +25,12 @@
                     'hide_empty' => false,
                 ]);
 
-                foreach ($terms as $term) : ?>
-                    <li class="blog__category-item">
+                $current_term_id = get_queried_object_id();
+
+                foreach ($terms as $term) : 
+                    $active_class = ($term->term_id == $current_term_id) ? 'active' : '';
+                ?>
+                    <li class="blog__category-item <?php echo $active_class; ?>">
                         <a href="<?php echo esc_url(get_category_link($term->term_id)); ?>" class="blog__category-link">
                             <span><?php echo esc_html($term->name); ?></span>
                             <span class="blog__category-amount"><?php echo esc_html($term->count); ?></span>
@@ -31,16 +40,9 @@
             </ul>
 
             <div class="blog__articles">
-                <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                $query = new WP_Query([
-                    'post_type'      => 'blog',
-                    'posts_per_page' => 6,
-                    'paged'          => $paged,
-                ]);
 
-                if ($query->have_posts()) :
-                    while ($query->have_posts()) : $query->the_post(); 
+                <?php if ( have_posts() ) :
+                    while ( have_posts() ) : the_post(); 
                         $post_general = get_field('general', get_the_ID());
                         $team_id = $post_general['author'];
                         $team_general = get_field('general', $team_id);
@@ -91,35 +93,16 @@
                 <?php endif; ?>
             </div>
 
-            <div class="blog-pagination">
-                <ul class="blog-pagination__numbers">
-                    <?php
-                    $total_pages = $query->max_num_pages;
-                    for ($i = 1; $i <= $total_pages; $i++) : ?>
-                        <li class="blog-pagination__number<?php echo ($paged == $i) ? ' active' : ''; ?>">
-                            <a href="<?php echo get_pagenum_link($i); ?>"><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></a>
-                        </li>
-                    <?php endfor; ?>
-                </ul>
-
-                <div class="blog-pagination__nav">
-                    <div class="blog-pagination__prev<?php echo get_previous_posts_link() ? '' : ' disabled'; ?>">
-                        <a href="<?php echo get_previous_posts_page_link() ?: '#'; ?>"<?php echo get_previous_posts_link() ? '' : ' tabindex="-1"'; ?>>
-                            <svg class="angle-left-icon" aria-hidden="true">
-                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-left"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="blog-pagination__next<?php echo get_next_posts_link() ? '' : ' disabled'; ?>">
-                        <a href="<?php echo get_next_posts_page_link($query->max_num_pages) ?: '#'; ?>"<?php echo get_next_posts_link() ? '' : ' tabindex="-1"'; ?>>
-                            <svg class="angle-right-icon" aria-hidden="true">
-                                <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#angle-right"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- Навигация -->
+            <?php the_posts_pagination([
+                'prev_text' => '&laquo;',
+                'next_text' => '&raquo;',
+            ]); ?>
         </div>
     </div>
 </section>
+
+	</main>
+
+<?php
+get_footer();

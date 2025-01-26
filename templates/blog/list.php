@@ -33,6 +33,7 @@
             <div class="blog__articles">
                 <?php
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                error_log($paged);
                 $query = new WP_Query([
                     'post_type'      => 'blog',
                     'posts_per_page' => 6,
@@ -84,13 +85,11 @@
                                 <?php endif; ?>
                             </a>
                         </article>
-                    <?php endwhile;
-                    wp_reset_postdata();
-                else : ?>
+                    <?php endwhile; ?>
+                <?php else : ?>
                     <p>Немає записів для відображення.</p>
                 <?php endif; ?>
             </div>
-
             <div class="blog-pagination">
                 <ul class="blog-pagination__numbers">
                     <?php
@@ -120,6 +119,7 @@
                     </div>
                 </div>
             </div>
+            <?php wp_reset_postdata(); ?>
         </div>
     </div>
 </section>

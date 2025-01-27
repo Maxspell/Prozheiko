@@ -263,16 +263,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const videoContainer = document.getElementById('video-container');
   const videoCodeContainer = document.getElementById('video-code');
+  const videoFile = document.getElementById('video-file');
 
   playButton.addEventListener('click', function () {
+    if (videoCodeContainer) {
       let videoCode = videoCodeContainer.innerHTML;
 
       videoCode = videoCode.replace(/src="([^"]+)"/, function (match, url) {
-          const separator = url.includes('?') ? '&' : '?';
-          return `src="${url}${separator}autoplay=1"`;
+        const separator = url.includes('?') ? '&' : '?';
+        return `src="${url}${separator}autoplay=1"`;
       });
 
       videoContainer.innerHTML = videoCode;
+    } else if (videoFile) {
+      videoFile.setAttribute('autoplay', 'true');
+      videoFile.play();
+      videoFile.classList.add('active');
+      videoContainer.classList.add('hidden');
+
+      videoFile.addEventListener('ended', function () {
+        videoFile.currentTime = 0;
+      });
+    }
   });
 });
 

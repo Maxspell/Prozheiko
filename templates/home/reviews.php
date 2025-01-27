@@ -20,24 +20,29 @@
                                 $review_after_image = get_field( 'general_after_image', $item->ID );
                                 $review_normal_image = get_field( 'general_normal_image', $item->ID );
                                 $review_large_image = get_field( 'general_large_image', $item->ID );
+                                $review_instagram_link = get_field( 'general_instagram_link', $item->ID );
                                 ?>
                                 <?php if ( $review_type == 'video' ) { ?>
                                     <div class="swiper-slide reviews__slide reviews__slide--video">
                                         <a href="#reviewsVideo" class="reviews__slide-link" data-fancybox="gallery">
                                             <img class="reviews__slide-img" src="<?php echo esc_url( $review_video_image ); ?>" alt="">
-                                            <div class="reviews__slide-meta">
-                                                <div class="reviews__slide-badge">Відео відгук</div>
-                                                <div class="reviews__slide-badge">Послуга</div>
-                                                <svg class="instagram-icon" aria-hidden="true">
-                                                    <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
-                                                </svg>
-                                            </div>
                                             <button class="video__play" aria-label="Play video">
                                                 <svg class="play-icon" aria-hidden="true">
                                                     <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#play"></use>
                                                 </svg>
                                             </button>
                                         </a>
+                                        <div class="reviews__slide-meta">
+                                            <div class="reviews__slide-badge">Відео відгук</div>
+                                            <div class="reviews__slide-badge">Послуга</div>
+                                            <?php if ( !empty( $review_instagram_link ) ) { ?>
+                                                <a href="<?php echo esc_url( $review_instagram_link ); ?>" class="reviews__slide-social-link" target="_blank">
+                                                    <svg class="instagram-icon" aria-hidden="true">
+                                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
+                                                    </svg>
+                                                </a>
+                                            <?php } ?>
+                                        </div>
                                         <div class="hidden">
                                             <video controls class="reviews__video" id="reviewsVideo">
                                                 <source src="<?php echo esc_url( $review_video ); ?>" type="video/mp4">
@@ -62,19 +67,23 @@
                                     <div class="swiper-slide reviews__slide">
                                         <a href="<?php echo esc_url( $review_large_image ); ?>" class="reviews__slide-link" data-fancybox="gallery">
                                             <img class="reviews__slide-img" src="<?php echo esc_url( $review_normal_image ); ?>" alt="">
-                                            <div class="reviews__slide-meta">
-                                                <div class="reviews__slide-badge">Відгук</div>
-                                                <div class="reviews__slide-badge">Послуга</div>
-                                                <svg class="instagram-icon" aria-hidden="true">
-                                                    <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
-                                                </svg>
-                                            </div>
                                             <button class="video__play" aria-label="Play video">
                                                 <svg class="play-icon" aria-hidden="true">
                                                     <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#play"></use>
                                                 </svg>
                                             </button>
                                         </a>
+                                        <div class="reviews__slide-meta">
+                                            <div class="reviews__slide-badge">Відгук</div>
+                                            <div class="reviews__slide-badge">Послуга</div>
+                                            <?php if ( !empty( $review_instagram_link ) ) { ?>
+                                                <a href="<?php echo esc_url( $review_instagram_link ); ?>" class="reviews__slide-social-link" target="_blank">
+                                                    <svg class="instagram-icon" aria-hidden="true">
+                                                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#instagram"></use>
+                                                    </svg>
+                                                </a>
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                 <?php } ?>
                             <?php endforeach; ?>

@@ -24,9 +24,15 @@
                 <img src="<?= $video['poster'] ?>" alt="">
                 <button class="video__play" id="play-button" aria-label="Play video"></button>
             </div>
-            <div class="video__code" id="video-code">
-                <?= $video['code'] ?>
-            </div>
+            <?php if (!empty($video['code'])) { ?>
+                <div class="video__code" id="video-code">
+                    <?= $video['code'] ?>
+                </div>
+            <?php } elseif (!empty($video['file'])) { ?>
+                <video controls class="video__file" id="video-file">
+                    <source src="<?= $video['file'] ?>" type="video/mp4">
+                </video>
+            <?php } ?>
         </div>
     </div>
 </section>

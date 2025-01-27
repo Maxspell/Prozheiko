@@ -1255,7 +1255,9 @@ p:last-child {
   padding: 0.4rem;
 }
 
-.reviews__slide-meta .instagram-icon {
+.reviews__slide-social-link {
+  display: block;
+  font-size: 0;
   margin-left: auto;
 }
 
@@ -1410,8 +1412,15 @@ p:last-child {
   aspect-ratio: 16 / 9;
 }
 
-.video__code {
+.video__code,
+.video__file {
   display: none;
+}
+
+.video__file.active {
+  display: block;
+  width: 100%;
+  border-radius: 0.4rem;
 }
 
 .video__more {

@@ -2040,6 +2040,10 @@ p:last-child {
   margin-bottom: 2.4rem;
 }
 
+.profile__image img {
+  border-radius: 0.4rem;
+}
+
 .profile__button {
   margin-bottom: 4rem;
 }
@@ -2066,7 +2070,7 @@ p:last-child {
 
 .profile__experience-item {
   display: grid;
-  grid-template-columns: 8.5rem auto;
+  grid-template-columns: 11rem auto;
   gap: 1.6rem;
   border-bottom: var(--color-grey) solid 1px;
   padding-block: 1.6rem;

@@ -21,6 +21,13 @@
                                 </div>
                             <?php endforeach; ?>
                         </div>
+                        <div class="swiper-actions">
+                            <div class="swiper-pagination"></div>
+                            <div class="reviews__buttons">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
                     </div>
                 <?php endif; ?>
             </div>

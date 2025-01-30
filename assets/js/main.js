@@ -19,8 +19,8 @@ if (typeof Swiper !== 'undefined') {
     slidesPerView: 1.4,
     spaceBetween: 20,
     navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
+      prevEl: '.reviews__slider .swiper-button-prev',
+      nextEl: '.reviews__slider .swiper-button-next',
     },
     pagination: {
       el: '.swiper-pagination',
@@ -46,8 +46,8 @@ if (typeof Swiper !== 'undefined') {
     slidesPerView: 1.2,
     spaceBetween: 20,
     navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
+      prevEl: '.steps__slider .swiper-button-prev',
+      nextEl: '.steps__slider .swiper-button-next',
     },
     breakpoints: {
       768: {
@@ -65,8 +65,8 @@ if (typeof Swiper !== 'undefined') {
     slidesPerView: 1,
     spaceBetween: 20,
     navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
+      prevEl: '.doctors__slider .swiper-button-prev',
+      nextEl: '.doctors__slider .swiper-button-next',
     },
     pagination: {
       el: '.swiper-pagination',
@@ -571,6 +571,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const quotesSecondaryIcon = document.querySelector('.quotes-leaders-secodary-icon');
   const closeSecondaryIcon = document.querySelector('.close-leaders-secondary-icon');
   const overlaySecondary = document.querySelector('.leaders__overlay--right');
+
+  if (!plusPrimaryIcon) return;
 
   plusPrimaryIcon.addEventListener('click', () => {
       plusPrimaryIcon.classList.add('hidden');

@@ -578,7 +578,12 @@ document.addEventListener('DOMContentLoaded', () => {
       plusPrimaryIcon.classList.add('hidden');
       quotesPrimaryIcon.classList.remove('hidden');
       closePrimaryIcon.classList.remove('hidden');
-      overlayPrimary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-left.svg')";
+      if (window.innerWidth < 480) {
+        overlayPrimary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-left-mobile.svg')";
+      }
+      else {
+        overlayPrimary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-left.svg')";
+      }
   });
 
   closePrimaryIcon.addEventListener('click', () => {
@@ -592,7 +597,12 @@ document.addEventListener('DOMContentLoaded', () => {
       plusSecondaryIcon.classList.add('hidden');
       quotesSecondaryIcon.classList.remove('hidden');
       closeSecondaryIcon.classList.remove('hidden');
-      overlaySecondary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-right.svg')";
+      if (window.innerWidth < 480) {
+        overlaySecondary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-right-mobile.svg')";
+      }
+      else {
+        overlaySecondary.style.backgroundImage = "url('/wp-content/themes/prozheiko/assets/img/leaders-overlay-right.svg')";
+      }
   });
 
   closeSecondaryIcon.addEventListener('click', () => {

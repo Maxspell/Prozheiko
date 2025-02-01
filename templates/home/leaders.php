@@ -3,31 +3,36 @@
 <section class="leaders" id="leaders">
     <div class="container">
         <div class="leaders__inner">
-            <img class="leaders__image" src="/wp-content/themes/prozheiko/assets/img/leaders.jpg" alt="">
-            <div class="leaders__overlay--left">
-                <div class="leaders__overlay-icons">
-                    <svg class="quotes-leaders-primary-icon hidden" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#quotes"></use>
-                    </svg>
-                    <svg class="plus-leaders-primary-icon" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-secondary"></use>
-                    </svg>
-                    <svg class="close-leaders-primary-icon hidden" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-primary"></use>
-                    </svg>
+            <div class="leaders__heading">
+                <picture class="leaders__image">
+                    <source srcset="/wp-content/themes/prozheiko/assets/img/leaders-mobile.jpg" media="(max-width: 480px)">
+                    <img src="/wp-content/themes/prozheiko/assets/img/leaders.jpg" alt="">
+                </picture>
+                <div class="leaders__overlay--left">
+                    <div class="leaders__overlay-icons">
+                        <svg class="quotes-leaders-primary-icon hidden" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#quotes"></use>
+                        </svg>
+                        <svg class="plus-leaders-primary-icon" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-secondary"></use>
+                        </svg>
+                        <svg class="close-leaders-primary-icon hidden" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-primary"></use>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-            <div class="leaders__overlay--right">
-                <div class="leaders__overlay-icons">
-                    <svg class="quotes-leaders-secodary-icon hidden" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#quotes"></use>
-                    </svg>
-                    <svg class="plus-leaders-secondary-icon" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-secondary"></use>
-                    </svg>
-                    <svg class="close-leaders-secondary-icon hidden" aria-hidden="true">
-                        <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-primary"></use>
-                    </svg>
+                <div class="leaders__overlay--right">
+                    <div class="leaders__overlay-icons">
+                        <svg class="quotes-leaders-secodary-icon hidden" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#quotes"></use>
+                        </svg>
+                        <svg class="plus-leaders-secondary-icon" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-secondary"></use>
+                        </svg>
+                        <svg class="close-leaders-secondary-icon hidden" aria-hidden="true">
+                            <use href="/wp-content/themes/prozheiko/assets/icons/icons.svg#close-leaders-primary"></use>
+                        </svg>
+                    </div>
                 </div>
             </div>
             <div class="leaders__content">

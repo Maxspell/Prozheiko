@@ -961,7 +961,12 @@ p:last-child {
   margin-right: -2.4rem;
 }
 
-.leaders__image {
+.leaders__heading {
+  position: relative;
+}
+
+.leaders__image img {
+  width: 100%;
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
 }
@@ -3112,10 +3117,10 @@ p:last-child {
     margin-left: -1.6rem;
     margin-right: -1.6rem;
   }
-  .leaders__overlay--left,
+  /* .leaders__overlay--left,
   .leaders__overlay--right {
     display: none;
-  }
+  } */
   .leaders__content {
     padding: 4rem 1.6rem 6.4rem;
   }
@@ -3432,92 +3437,36 @@ p:last-child {
   }
 }
 
-/* Общие стили */
-.test-icon {
-  width: 2.4rem;
-  height: 2.4rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Контейнер для иконок */
-.icon-container {
-  position: relative;
-  width: 2.4rem;
-  height: 2.4rem;
-  overflow: hidden;
-}
-
-/* Начальные позиции иконок */
-.icon-1 {
-  z-index: 2;
-}
-.icon-2 {
-  color: var(--color-primary);
-  z-index: 1;
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-/* Анимация при наведении */
-.icon-container:hover .icon-1 {
-  animation: move-up 1s forwards;
-}
-.icon-container:hover .icon-2 {
-  animation: move-down 1s forwards;
-}
-
-/* Анимация возврата */
-.icon-container:not(:hover) .icon-1 {
-  animation: move-down-reverse 1s forwards;
-}
-.icon-container:not(:hover) .icon-2 {
-  animation: move-up-reverse 1s forwards;
-}
-
-/* Ключевые кадры для анимации */
-@keyframes move-up {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
+@media (max-width: 480px) {   
+  .leaders__overlay--left {
+    width: 36.4rem;
+    height: 7.8rem;
+    top: auto;
+    left: auto;
+    right: 1.6rem;
+    bottom: 1.6rem;
   }
-  100% {
-    transform: translateY(-100%);
-    opacity: 0;
+  .leaders__overlay--right {
+    width: 36.4rem;
+    height: 7.8rem;
+    top: 1.6rem;
+    right: auto;
+    left: 1.6rem;
   }
-}
-
-@keyframes move-down {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
+  .plus-leaders-primary-icon, .close-leaders-primary-icon {
+    bottom: auto;
+    right: auto;
+    left: -1.6rem;
+    top: -1.6rem;
+    transform: scaleY(-1);
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+  .plus-leaders-secondary-icon, .close-leaders-secondary-icon {
+    left: auto;
+    right: -1.6rem;
+    transform: scaleX(-1);
   }
-}
-
-@keyframes move-down-reverse {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes move-up-reverse {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 0;
+  .quotes-leaders-primary-icon,
+  .quotes-leaders-secodary-icon {
+    display: none;
   }
 }

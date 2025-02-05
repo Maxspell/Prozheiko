@@ -619,6 +619,28 @@ p:last-child {
   margin-top: 2rem;
 }
 
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-block: 2rem;
+}
+
+.gallery-item {
+  flex: 0 1 30rem;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  cursor: zoom-in;
+}
+
 .header__inner {
   display: flex;
   justify-content: space-between;

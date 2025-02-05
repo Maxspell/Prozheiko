@@ -492,9 +492,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-Fancybox.bind('[data-fancybox="gallery"]', {
-  // Your custom options for a specific gallery
-});
+Fancybox.bind('[data-fancybox="gallery"]', {});
+
+Fancybox.bind('[data-fancybox="image-gallery"]', {});
 
 function moveElementOnScreenSize() {
   const subNav = document.querySelector('.header__nav-subnav');

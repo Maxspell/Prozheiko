@@ -21,17 +21,49 @@
                 <?php } ?>
             </div>
             <div class="video__image" id="video-container">
-                <img src="<?= $video['poster'] ?>" alt="">
+                <img class="video__poster--desktop" src="<?= $video['poster'] ?>" alt="">
+                <img class="video__poster--mobile" src="<?= $video['poster_mobile'] ?>" alt="">
                 <button class="video__play" id="play-button" aria-label="Play video"></button>
             </div>
             <?php if (!empty($video['code'])) { ?>
                 <div class="video__code" id="video-code">
                     <?= $video['code'] ?>
                 </div>
-            <?php } elseif (!empty($video['file'])) { ?>
+            <?php } elseif (!empty($video['file']) && !empty($video['file_mobile'])) { ?>
                 <video controls class="video__file" id="video-file">
-                    <source src="<?= $video['file'] ?>" type="video/mp4">
+                    <source id="video-source" src="<?= $video['file'] ?>" type="video/mp4">
                 </video>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const video = document.getElementById("video-file");
+                        const source = document.getElementById("video-source");
+
+                        const updateVideoSource = () => {
+                            const isMobile = window.innerWidth <= 480;
+                            const newSrc = isMobile ? "<?= $video['file_mobile'] ?>" : "<?= $video['file'] ?>";
+
+                            if (source.src !== newSrc) {
+                                const wasPlaying = !video.paused;
+                                console.log(wasPlaying);
+                                const currentTime = video.currentTime;
+
+                                source.src = newSrc;
+                                video.load();
+                                video.currentTime = currentTime;
+
+                                if (wasPlaying) {
+                                    video.play();
+                                } else {
+                                    video.pause();
+                                }
+                            }
+                        };
+
+                        updateVideoSource();
+
+                        window.addEventListener("resize", updateVideoSource);
+                    });
+                </script>
             <?php } ?>
         </div>
     </div>

@@ -629,6 +629,7 @@ p:last-child {
 }
 
 .gallery-item {
+  max-width: 25rem;
   flex: 0 1 30rem;
   transition: transform 0.3s ease;
 }
@@ -1407,8 +1408,29 @@ p:last-child {
   position: relative;
 }
 
+.video__image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.4rem;
+}
+
 .video__image img {
   border-radius: 0.4rem;
+}
+
+.video__poster--desktop,
+.video__src--desktop {
+  display: block;
+}
+
+.video__poster--mobile,
+.video__src--mobile {
+  display: none;
 }
 
 .video__play {
@@ -3490,5 +3512,15 @@ p:last-child {
   .quotes-leaders-primary-icon,
   .quotes-leaders-secodary-icon {
     display: none;
+  }
+
+  .video__poster--desktop,
+  .video__src--desktop {
+    display: none;
+  }
+  
+  .video__poster--mobile,
+  .video__src--mobile {
+    display: block;
   }
 }

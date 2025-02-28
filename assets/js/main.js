@@ -612,6 +612,3 @@ document.addEventListener('DOMContentLoaded', () => {
       overlaySecondary.style.backgroundImage = "none";
   });
 });
-
-
-
